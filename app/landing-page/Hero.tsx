@@ -1,4 +1,4 @@
-import BtnLocation from "./BtnLocation";
+import BtnLocation from "../../components/BtnLocation";
 
 const Hero = () => {
     return (
