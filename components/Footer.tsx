@@ -24,9 +24,27 @@ const Footer = ({ page }: FooterProp) => {
                 USA.
             </p>
             <section className="mt-10 flex gap-4 text-xl md:m-0">
-                <IoLogoFacebook />
-                <FaInstagram />
-                <FaTwitter />
+                <IoLogoFacebook
+                    className={
+                        page === "landingPage"
+                            ? "hover:text-accent"
+                            : "hover:text-light"
+                    }
+                />
+                <FaInstagram
+                    className={
+                        page === "landingPage"
+                            ? "hover:text-accent"
+                            : "hover:text-light"
+                    }
+                />
+                <FaTwitter
+                    className={
+                        page === "landingPage"
+                            ? "hover:text-accent"
+                            : "hover:text-light"
+                    }
+                />
             </section>
         </section>
     );
