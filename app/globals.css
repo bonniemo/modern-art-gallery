@@ -118,3 +118,15 @@ p {
         line-height: var(--line-height-xl);
     }
 }
+
+/* Space Styles Reference
+| Spacing (px) | Spacing (rem) | Tailwind Class |
+|--------------|---------------|----------------|
+|     24px     |    1.5rem     |     t-6        |
+|     32px     |    2rem       |     t-8        |
+|     40px     |    2.5rem     |     t-10       |
+|     48px     |    3rem       |     t-12       |
+|     64px     |    4rem       |     t-16       |
+|    120px     |   7.5rem      |     t-28       |
+|    180px     |  11.25rem     |     t-46       |
+*/
