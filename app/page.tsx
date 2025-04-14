@@ -1,6 +1,6 @@
+import Gallery from "@/app/landing-page/Gallery";
+import Hero from "@/app/landing-page/Hero";
 import Footer from "@/components/Footer";
-import Gallery from "@/components/Gallery";
-import Hero from "@/components/Hero";
 
 const Home = () => {
     return (
