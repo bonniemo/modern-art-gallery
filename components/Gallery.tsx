@@ -30,7 +30,7 @@ const Gallery = () => {
                 </p>
             </section>
 
-            <picture className="md:col-start-1 md:col-end-8 md:row-start-2 md:row-end-4 mt-8 md-mt-0">
+            <picture className="md:col-start-1 md:col-end-8 md:row-start-2 md:row-end-4 ">
                 <source
                     srcSet="/desktop/image-grid-2.jpg"
                     media="(min-width: 1000px)"
@@ -42,7 +42,7 @@ const Gallery = () => {
                 <img
                     src="/mobile/image-grid-2.jpg"
                     alt="Gallery Grid 2"
-                    className="mb-4 w-full h-full object-cover"
+                    className=" w-full h-full object-cover mt-8 md:mt-0"
                 />
             </picture>
 
