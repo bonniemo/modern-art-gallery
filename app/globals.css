@@ -34,11 +34,16 @@
     --p-size-s: 1.125rem;
 
     /* LINE HEIGHT */
-    --line-height-xl: 5.6rem;
+    /* headings */
+    --line-height-xl: 5.5rem;
     --line-height-l: 4.4rem;
     --line-height-m: 3.125rem;
     --line-height-s: 2.25rem;
     --line-height-xs: 1.75rem;
+
+    /* body */
+    --line-height-body-m: 2rem;
+    --line-height-body-s: 1.75rem;
 }
 
 h1 {
@@ -65,7 +70,7 @@ h3 {
 p {
     font-family: var(--font-outfit), sans-serif;
     font-size: var(--p-size-s);
-    line-height: var(--line-height-xs);
+    line-height: var(--line-height-body-s);
     font-weight: 200;
 }
 
@@ -82,7 +87,7 @@ p {
 
     p {
         font-size: var(--p-size-m);
-        line-height: var(--line-height-s);
+        line-height: var(--line-height-body-m);
     }
 }
 
@@ -97,8 +102,8 @@ p {
         line-height: var(--line-height-l);
     }
     p {
-        font-size: var(--p-size-s);
-        line-height: var(--line-height-xs);
+        font-size: var(--p-size-m);
+        line-height: var(--line-height-body-m);
     }
 }
 

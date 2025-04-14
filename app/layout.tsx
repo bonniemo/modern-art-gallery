@@ -14,7 +14,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
     title: "Art Gallery",
-    description: "An art gallery built with Next.js",
+    description: "An art gallery page built with Next.js",
 };
 
 export default function RootLayout({
