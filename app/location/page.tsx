@@ -44,7 +44,7 @@ const location = () => {
                     </p>
                 </section>
             </section>
-            <Footer page={"map"} />
+            <Footer bgColor="accent" />
         </article>
     );
 };

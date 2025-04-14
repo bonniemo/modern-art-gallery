@@ -3,14 +3,14 @@ import { FaInstagram } from "react-icons/fa6";
 import { IoLogoFacebook } from "react-icons/io";
 
 type FooterProp = {
-    page: string;
+    bgColor: string;
 };
 
-const Footer = ({ page }: FooterProp) => {
+const Footer = ({ bgColor }: FooterProp) => {
     return (
         <section
             className={`px-6 py-12 md:px-10 md:py-14 md:flex md:justify-between ${
-                page === "landingPage"
+                bgColor === "black"
                     ? "bg-dark text-light"
                     : "bg-accent text-dark"
             }`}
@@ -26,21 +26,21 @@ const Footer = ({ page }: FooterProp) => {
             <section className="mt-10 flex gap-4 text-xl md:m-0">
                 <IoLogoFacebook
                     className={
-                        page === "landingPage"
+                        bgColor === "black"
                             ? "hover:text-accent"
                             : "hover:text-light"
                     }
                 />
                 <FaInstagram
                     className={
-                        page === "landingPage"
+                        bgColor === "black"
                             ? "hover:text-accent"
                             : "hover:text-light"
                     }
                 />
                 <FaTwitter
                     className={
-                        page === "landingPage"
+                        bgColor === "black"
                             ? "hover:text-accent"
                             : "hover:text-light"
                     }
