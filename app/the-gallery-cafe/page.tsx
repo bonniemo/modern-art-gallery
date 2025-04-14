@@ -1,5 +1,11 @@
+import CafeHero from "./CafeHero";
+
 const galleryCafePage = () => {
-    return <div> yay Gallery Cafe</div>;
+    return (
+        <>
+            <CafeHero />
+        </>
+    );
 };
 
 export default galleryCafePage;
