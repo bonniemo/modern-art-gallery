@@ -70,11 +70,6 @@ p {
 }
 
 @media screen and (min-width: 768px) {
-    p {
-        font-size: var(--p-size-m);
-        line-height: var(--line-height-s);
-    }
-
     h1 {
         font-size: var(--header-size-l);
         line-height: var(--line-height-l);
@@ -83,6 +78,11 @@ p {
     h2 {
         font-size: var(--header-size-m);
         line-height: var(--line-height-m);
+    }
+
+    p {
+        font-size: var(--p-size-m);
+        line-height: var(--line-height-s);
     }
 }
 
@@ -95,6 +95,10 @@ p {
     h2 {
         font-size: var(--header-size-l);
         line-height: var(--line-height-l);
+    }
+    p {
+        font-size: var(--p-size-s);
+        line-height: var(--line-height-xs);
     }
 }
 
