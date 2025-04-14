@@ -84,11 +84,6 @@ p {
         font-size: var(--header-size-m);
         line-height: var(--line-height-m);
     }
-
-    p {
-        font-size: var(--p-size-m);
-        line-height: var(--line-height-body-m);
-    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -100,10 +95,6 @@ p {
     h2 {
         font-size: var(--header-size-l);
         line-height: var(--line-height-l);
-    }
-    p {
-        font-size: var(--p-size-m);
-        line-height: var(--line-height-body-m);
     }
 }
 
