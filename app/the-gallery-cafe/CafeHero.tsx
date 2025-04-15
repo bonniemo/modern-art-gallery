@@ -6,7 +6,7 @@ const CafeHero = () => {
     return (
         <section className="flex flex-wrap md:flex-nowrap md:justify-between md:gap-12 md:pt-24 md:pb-8 md:px-16">
             <section className="my-auto order-2 md:order-1 mt-10 md:mt-0 px-4 md:px-0">
-                <h1 className="text-header-size-l md:text-header-size-m lg:text-header-size-xl">
+                <h1 className="text-header-l md:text-header-m lg:text-header-xl">
                     THE GALLERY
                     <span className="block mt-4">CAFÉ</span>
                 </h1>

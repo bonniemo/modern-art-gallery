@@ -25,10 +25,10 @@
     --color-accent: #d5966c;
 
     /* FONTSIZE */
-    --text-header-size-xl: 6rem;
-    --text-header-size-l: 4.4rem;
-    --text-header-size-m: 3.75rem;
-    --text-header-size-s: 2.25rem;
+    --text-header-xl: 6rem;
+    --text-header-l: 4.4rem;
+    --text-header-m: 3.75rem;
+    --text-header-s: 2.25rem;
 
     --text-p-m: 1.4rem;
     --text-p-s: 1.125rem;
@@ -36,15 +36,15 @@
     /* LINE HEIGHT */
 
     /* headings */
-    --leading--xl: 5.5rem;
-    --leading--l: 4.4rem;
-    --leading--m: 3.125rem;
-    --leading--s: 2.25rem;
-    --leading--xs: 1.75rem;
+    --leading-xl: 5.5rem;
+    --leading-l: 4.4rem;
+    --leading-m: 3.125rem;
+    --leading-s: 2.25rem;
+    --leading-xs: 1.75rem;
 
     /* body */
-    --leading--body-m: 2rem;
-    --leading--body-s: 1.75rem;
+    --leading-body-m: 2rem;
+    --leading-body-s: 1.75rem;
 }
 
 h1 {
