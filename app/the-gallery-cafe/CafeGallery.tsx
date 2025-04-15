@@ -1,6 +1,6 @@
 const CafeGallery = () => {
     return (
-        <div className="p-4 md:p-6 mt-28 mb-28 lg:mb-46 md:grid md:grid-cols-2 md:gap-4 max-w-6xl m-auto">
+        <div className="mt-28 mb-28 lg:mb-46 md:grid md:grid-cols-2 md:gap-4">
             <picture className="md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-3">
                 <source
                     srcSet="/gallery-cafe/desktop/juice-bottles.png"
