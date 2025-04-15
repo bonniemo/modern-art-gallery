@@ -25,13 +25,15 @@
     --color-accent: #d5966c;
 
     /* FONTSIZE */
-    --header-size-xl: 6rem;
-    --header-size-l: 4.4rem;
-    --header-size-m: 3.75rem;
-    --header-size-s: 2.25rem;
+    --text-header-size-xl: 6rem;
+    --text-header-size-l: 4.4rem;
+    --text-header-size-m: 3.75rem;
+    --text-header-size-s: 2.25rem;
 
     --p-size-m: 1.4rem;
     --p-size-s: 1.125rem;
+
+    --text-p-m: 1.4rem;
 
     /* LINE HEIGHT */
     /* headings */
@@ -48,64 +50,56 @@
 
 h1 {
     font-family: var(--font-big-shoulders), sans-serif;
-    font-size: var(--header-size-m);
     line-height: var(--line-height-m);
-    font-weight: 800;
+    font-weight: 900;
 }
 
 h2 {
     font-family: var(--font-big-shoulders), sans-serif;
-    font-size: var(--header-size-m);
     line-height: var(--line-height-m);
-    font-weight: 800;
+    font-weight: 900;
 }
 
 h3 {
     font-family: var(--font-big-shoulders), sans-serif;
     font-size: var(--header-size-s);
     line-height: var(--line-height-s);
-    font-weight: 800;
+    font-weight: 900;
 }
 
-p {
+/* p {
     font-family: var(--font-outfit), sans-serif;
     font-size: var(--p-size-s);
     line-height: var(--line-height-body-s);
     font-weight: 200;
-}
+} */
 
 @media screen and (min-width: 768px) {
     h1 {
-        font-size: var(--header-size-l);
         line-height: var(--line-height-l);
     }
 
     h2 {
-        font-size: var(--header-size-m);
         line-height: var(--line-height-m);
     }
 }
 
 @media screen and (min-width: 1024px) {
     h1 {
-        font-size: var(--header-size-l);
         line-height: var(--line-height-l);
     }
 
     h2 {
-        font-size: var(--header-size-l);
         line-height: var(--line-height-l);
     }
 }
 
 @media screen and (min-width: 1439px) {
     h1 {
-        font-size: var(--header-size-xl);
         line-height: var(--line-height-xl);
     }
 
     h2 {
-        font-size: var(--header-size-l);
         line-height: var(--line-height-xl);
     }
 }
@@ -120,4 +114,6 @@ p {
 |     64px     |    4rem       |     t-16       |
 |    120px     |   7.5rem      |     t-28       |
 |    180px     |  11.25rem     |     t-46       |
+
+ned to add -24, 6rem
 */

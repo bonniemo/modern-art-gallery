@@ -4,27 +4,27 @@ import ButtonEventCalendar from "./ButtonEventCalendar";
 
 const CafeHero = () => {
     return (
-        <section className="flex justify-between gap-4 md:py-12 px-16">
-            <section className="my-auto">
-                <h1>
+        <section className="flex flex-wrap md:flex-nowrap md:justify-between md:gap-12 md:pt-24 md:pb-8 md:px-16">
+            <section className="my-auto order-2 md:order-1 mt-10 md:mt-0 px-4 md:px-0">
+                <h1 className="text-header-size-l md:text-header-size-m lg:text-header-size-xl">
                     THE GALLERY
                     <span className="block mt-4">CAFÉ</span>
                 </h1>
-                <p className="mt-8">
+                <p className="mt-10 lg:text-p-m">
                     Where community and creativity come together over
                     exceptional coffee.
                 </p>
-                <div className="mt-8">
+                <div className="mt-10">
                     <ButtonEventCalendar />
                 </div>
             </section>
-            <div className="relative w-full max-w-[44rem] h-[413px]">
+            <div className="relative w-full min-w-[320px] lg:max-w-[41rem] md:max-w-[38rem] h-[413px] order-1 md:order-2">
                 <Image
                     src={girlWithMug}
                     alt="Girl holding a coffee mug"
                     fill
                     priority
-                    className="object-cover rounded-br-[4.5rem] rounded-tl-[4.5rem] drop-shadow-lg"
+                    className="object-cover md:rounded-br-[4.5rem] md:rounded-tl-[4.5rem] drop-shadow-lg"
                 />
             </div>
         </section>
