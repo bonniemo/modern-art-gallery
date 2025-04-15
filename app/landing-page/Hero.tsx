@@ -7,15 +7,15 @@ const Hero = () => {
             <section className="w-full lg:col-start-5 lg:col-end-9 md:col-start-1 md:col-end-7 row-start-1 row-end-5">
                 <picture>
                     <source
-                        srcSet="/desktop/image-hero.jpg"
+                        srcSet="/landing-page/desktop/image-hero.jpg"
                         media="(min-width: 1024px)"
                     />
                     <source
-                        srcSet="/tablet/image-hero.jpg"
+                        srcSet="/landing-page/tablet/image-hero.jpg"
                         media="(min-width: 768px)"
                     />
                     <img
-                        src="/mobile/image-hero.jpg"
+                        src="/landing-page/mobile/image-hero.jpg"
                         alt="Modern Art Gallery Hero"
                         className="w-full h-full object-cover"
                     />

@@ -3,15 +3,15 @@ const Gallery = () => {
         <div className="p-4 md:p-6 mt-28 mb-28 lg:mb-46 md:grid md:grid-cols-12 md:gap-4 max-w-6xl m-auto">
             <picture className="md:col-start-6 md:col-end-13 md:row-start-1 md:row-end-2">
                 <source
-                    srcSet="/desktop/image-grid-1.jpg"
+                    srcSet="/landing-page/desktop/image-grid-1.jpg"
                     media="(min-width: 1000px)"
                 />
                 <source
-                    srcSet="/tablet/image-grid-1.jpg"
+                    srcSet="/landing-page/tablet/image-grid-1.jpg"
                     media="(min-width: 700px)"
                 />
                 <img
-                    src="/mobile/image-grid-1.jpg"
+                    src="/landing-page/mobile/image-grid-1.jpg"
                     alt="Gallery Grid 1"
                     className="w-full h-full object-cover"
                 />
@@ -32,15 +32,15 @@ const Gallery = () => {
 
             <picture className="md:col-start-1 md:col-end-8 md:row-start-2 md:row-end-4 ">
                 <source
-                    srcSet="/desktop/image-grid-2.jpg"
+                    srcSet="/landing-page/desktop/image-grid-2.jpg"
                     media="(min-width: 1000px)"
                 />
                 <source
-                    srcSet="/tablet/image-grid-2.jpg"
+                    srcSet="/landing-page/tablet/image-grid-2.jpg"
                     media="(min-width: 700px)"
                 />
                 <img
-                    src="/mobile/image-grid-2.jpg"
+                    src="/landing-page/mobile/image-grid-2.jpg"
                     alt="Gallery Grid 2"
                     className=" w-full h-full object-cover mt-8 md:mt-0"
                 />
@@ -48,15 +48,15 @@ const Gallery = () => {
 
             <picture className="md:col-start-8 md:col-end-13 md:row-start-2 md:row-end-3">
                 <source
-                    srcSet="/desktop/image-grid-3.jpg"
+                    srcSet="/landing-page/desktop/image-grid-3.jpg"
                     media="(min-width: 1000px)"
                 />
                 <source
-                    srcSet="/tablet/image-grid-3.jpg"
+                    srcSet="/landing-page/tablet/image-grid-3.jpg"
                     media="(min-width: 700px)"
                 />
                 <img
-                    src="/mobile/image-grid-3.jpg"
+                    src="/landing-page/mobile/image-grid-3.jpg"
                     alt="Gallery Grid 3"
                     className="mb-4 w-full h-full object-cover"
                 />

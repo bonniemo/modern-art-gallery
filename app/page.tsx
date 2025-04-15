@@ -7,7 +7,7 @@ const Home = () => {
         <>
             <Hero />
             <Gallery />
-            <Footer page={"landingPage"} />
+            <Footer bgColor="black" />
         </>
     );
 };

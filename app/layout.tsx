@@ -25,7 +25,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${bigShouldersDisplay.variable} ${outfit.variable} antialiased`}
+                className={`${bigShouldersDisplay.variable} ${outfit.variable} antialiased max-w-screen-2xl m-auto`}
             >
                 {children}
             </body>
