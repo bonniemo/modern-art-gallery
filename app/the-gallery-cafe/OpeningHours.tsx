@@ -1,9 +1,13 @@
 const OpeningHours = () => {
     return (
-        <section className="uppercase text-center py-16">
-            <h4 className="text-xl">Open all days</h4>
-            <h4 className="text-xl">7am to 3pm</h4>
-            <h4 className="text-m">+ evening events</h4>
+        <section className="uppercase text-center py-8 font-black">
+            <h4 className="text-header-size-s lg:text-header-size-xl ">
+                Open all days
+            </h4>
+            <h4 className="text-header-size-s lg:text-header-size-xl">
+                7am to 3pm
+            </h4>
+            <h4 className="text-2xl lg:text-header-size-m">+ evening events</h4>
         </section>
     );
 };

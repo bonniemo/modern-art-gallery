@@ -30,78 +30,41 @@
     --text-header-size-m: 3.75rem;
     --text-header-size-s: 2.25rem;
 
-    --p-size-m: 1.4rem;
-    --p-size-s: 1.125rem;
-
     --text-p-m: 1.4rem;
+    --text-p-s: 1.125rem;
 
     /* LINE HEIGHT */
+
     /* headings */
-    --line-height-xl: 5.5rem;
-    --line-height-l: 4.4rem;
-    --line-height-m: 3.125rem;
-    --line-height-s: 2.25rem;
-    --line-height-xs: 1.75rem;
+    --leading--xl: 5.5rem;
+    --leading--l: 4.4rem;
+    --leading--m: 3.125rem;
+    --leading--s: 2.25rem;
+    --leading--xs: 1.75rem;
 
     /* body */
-    --line-height-body-m: 2rem;
-    --line-height-body-s: 1.75rem;
+    --leading--body-m: 2rem;
+    --leading--body-s: 1.75rem;
 }
 
 h1 {
     font-family: var(--font-big-shoulders), sans-serif;
-    line-height: var(--line-height-m);
     font-weight: 900;
 }
 
 h2 {
     font-family: var(--font-big-shoulders), sans-serif;
-    line-height: var(--line-height-m);
     font-weight: 900;
 }
 
 h3 {
     font-family: var(--font-big-shoulders), sans-serif;
-    font-size: var(--header-size-s);
-    line-height: var(--line-height-s);
     font-weight: 900;
 }
 
-/* p {
+p {
     font-family: var(--font-outfit), sans-serif;
-    font-size: var(--p-size-s);
-    line-height: var(--line-height-body-s);
     font-weight: 200;
-} */
-
-@media screen and (min-width: 768px) {
-    h1 {
-        line-height: var(--line-height-l);
-    }
-
-    h2 {
-        line-height: var(--line-height-m);
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    h1 {
-        line-height: var(--line-height-l);
-    }
-
-    h2 {
-        line-height: var(--line-height-l);
-    }
-}
-
-@media screen and (min-width: 1439px) {
-    h1 {
-        line-height: var(--line-height-xl);
-    }
-
-    h2 {
-        line-height: var(--line-height-xl);
-    }
 }
 
 /* Space Styles Reference
