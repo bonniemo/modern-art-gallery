@@ -3,7 +3,7 @@ import CafeGallery from "./CafeGallery";
 import CafeHero from "./CafeHero";
 import OpeningHours from "./OpeningHours";
 
-const galleryCafePage = () => {
+const GalleryCafePage = () => {
     return (
         <>
             <CafeHero />
@@ -14,4 +14,4 @@ const galleryCafePage = () => {
     );
 };
 
-export default galleryCafePage;
+export default GalleryCafePage;

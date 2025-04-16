@@ -5,7 +5,7 @@ import { IoIosArrowForward } from "react-icons/io";
 const ButtonEventCalendar = () => {
     return (
         <Link
-            href="/#"
+            href="/event-calendar"
             className="flex items-center w-max h-16 drop-shadow-lg group"
         >
             <div className="bg-dark px-4 h-full flex justify-center items-center group-hover:bg-accent">

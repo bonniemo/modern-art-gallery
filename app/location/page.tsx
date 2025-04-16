@@ -1,7 +1,7 @@
 import BtnGoHome from "@/components/BtnGoHome";
 import Footer from "@/components/Footer";
 
-const location = () => {
+const Location = () => {
     return (
         <article>
             <section className="grid grid-cols-24 grid-rows-2">
@@ -51,4 +51,4 @@ const location = () => {
     );
 };
 
-export default location;
+export default Location;
