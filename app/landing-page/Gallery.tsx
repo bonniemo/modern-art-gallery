@@ -19,11 +19,11 @@ const Gallery = () => {
 
             <section className="mt-6 md:col-start-1 md:col-end-6 md:row-start-1 md:row-end-2">
                 {/* correct block for larger screens */}
-                <h2 className="uppercase mb-6">
-                    <span className="block lsinline">Your day </span>at the
+                <h2 className="uppercase mb-6 text-header-m leading-m lg:max-w-[21rem] md:max-w-[14rem]">
+                    <span className="block md:inline">Your day </span>at the
                     gallery
                 </h2>
-                <p className="md:max-w-xs mt-6">
+                <p className="md:max-w-xs mt-6 text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-light">
                     Wander through our distinct collections and find new
                     insights about our artists. Dive into the details of their
                     creative process.
@@ -63,10 +63,10 @@ const Gallery = () => {
             </picture>
 
             <section className="bg-dark text-light px-6 py-8 md:col-start-8 md:col-end-13 md:row-start-3 md:row-end-4 md:h-full">
-                <h2 className="uppercase mb-6">
+                <h2 className="uppercase mb-6 text-header-m leading-m">
                     Come &amp; be <span className="block">inspired</span>
                 </h2>
-                <p className="">
+                <p className=" text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-light">
                     We’re excited to welcome you to our gallery and see how our
                     collections influence you.
                 </p>

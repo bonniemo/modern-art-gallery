@@ -9,7 +9,9 @@ const BtnGoHome = () => {
                 <IoIosArrowBack className="text-2xl text-light" />
             </div>
             <div className="bg-dark h-full w-52 flex justify-center items-center group-hover:bg-accent">
-                <p className="uppercase text-light">Back to home</p>
+                <p className="uppercase text-light text-p-s leading-body-s font-extrabold">
+                    Back to home
+                </p>
             </div>
         </Link>
     );

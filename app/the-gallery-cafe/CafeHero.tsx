@@ -5,12 +5,12 @@ import ButtonEventCalendar from "./ButtonEventCalendar";
 const CafeHero = () => {
     return (
         <section className="flex flex-wrap md:flex-nowrap md:justify-between md:gap-12 md:pt-24 md:pb-8 md:px-16">
-            <section className="my-auto order-2 md:order-1 mt-10 md:mt-0 px-4 md:px-0">
+            <section className="my-auto order-2 md:order-1 mt-10 md:mt-0 px-4 md:px-0 leading-l lg:leading-xl">
                 <h1 className="text-header-l md:text-header-m lg:text-header-xl">
                     THE GALLERY
-                    <span className="block mt-4">CAFÉ</span>
+                    <span className="block lg:mt-2">CAFÉ</span>
                 </h1>
-                <p className="mt-10 lg:text-p-m">
+                <p className="mt-10 leading-body-s text-p-s lg:text-p-m font-light">
                     Where community and creativity come together over
                     exceptional coffee.
                 </p>
