@@ -1,7 +1,9 @@
+import { getEvents } from "@/actions/actions";
 import Footer from "@/components/Footer";
 import { slugify } from "@/utils/slugify";
+import { getCldImageUrl } from "next-cloudinary";
 import Link from "next/link";
-import { getEvents } from "./actions";
+import Image from "next/image";
 
 export default async function EventCalendar() {
     interface Event {
@@ -9,6 +11,7 @@ export default async function EventCalendar() {
         date: { seconds: number };
         title: string;
         description: string;
+        imageId?: string; // Update interface to include imageId
         image?: string;
     }
 
@@ -74,14 +77,19 @@ export default async function EventCalendar() {
 
                                 <section className="w-full shadow-xl md:grid md:grid-cols-3 border border-gray-400 mt-6 p-4">
                                     <div className="relative w-full aspect-[1/1]">
-                                        {/* Uncomment and use <Image> if image is available
-                                        <Image
-                                            src={event.image}
-                                            alt={event.title}
-                                            fill
-                                            className="object-cover"
-                                            priority
-                                        /> */}
+                                        {event.imageId && (
+                                            <Image
+                                                src={getCldImageUrl({
+                                                    width: 400,
+                                                    height: 400,
+                                                    src: event.imageId,
+                                                })}
+                                                alt={event.title}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
+                                            />
+                                        )}
                                     </div>
                                     <div className="px-2 md:px-6 md:mt-0 md:col-start-2 col-end-4">
                                         <h5 className="text-header-xs md:text-header-s font-black">
