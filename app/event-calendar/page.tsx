@@ -1,88 +1,39 @@
 import { getEvents } from "@/actions/actions";
 import Footer from "@/components/Footer";
 import { slugify } from "@/utils/slugify";
+import { groupEventsByMonth } from "@/utils/eventGrouping";
+import { Event } from "@/types/types";
 import { getCldImageUrl } from "next-cloudinary";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function EventCalendar() {
-    interface Event {
-        id: string;
-        date: { seconds: number };
-        title: string;
-        description: string;
-        imageId?: string; // Update interface to include imageId
-        image?: string;
-    }
-
-    interface FormattedEvent extends Event {
-        formattedDay: string;
-        formattedTime: string;
-    }
-
-    interface MonthGroup {
-        month: string;
-        events: FormattedEvent[];
-    }
-
     const events = (await getEvents()) as Event[];
-
-    // Group events by month with readable timestamps
-    const groupedByMonth = events.reduce<Record<string, MonthGroup>>(
-        (grouped, event) => {
-            const eventDate = new Date(event.date.seconds * 1000);
-
-            const monthName = eventDate.toLocaleString("default", {
-                month: "long",
-            });
-            const day = eventDate.toLocaleString("default", { day: "numeric" });
-            const formattedDay = `${day}`;
-            const formattedTime = eventDate.toLocaleString("default", {
-                hour: "2-digit",
-                minute: "2-digit",
-            });
-
-            if (!grouped[monthName]) {
-                grouped[monthName] = {
-                    month: monthName,
-                    events: [],
-                };
-            }
-
-            grouped[monthName].events.push({
-                ...event,
-                formattedDay,
-                formattedTime,
-            });
-
-            return grouped;
-        },
-        {}
-    );
+    const groupedByMonth = groupEventsByMonth(events);
 
     return (
         <>
-            <section className="px-4 pt-16 pb-28">
+            <section className="px-4 pb-28">
                 {Object.values(groupedByMonth).map(({ month, events }) => (
                     <section key={month}>
-                        <h3 className="text-header-m font-black uppercase">
+                        <h3 className="text-header-m font-black uppercase mt-16">
                             {month}
                         </h3>
 
                         {events.map((event, index) => (
                             <div key={`${event.formattedDay}-${index}`}>
-                                <h4 className="text-header-s font-black mt-12 uppercase">
+                                <h4 className="text-header-s font-black mt-6 uppercase">
                                     {event.formattedDay}
                                 </h4>
 
                                 <section className="w-full shadow-xl md:grid md:grid-cols-3 border border-gray-400 mt-6 p-4">
                                     <div className="relative w-full aspect-[1/1]">
-                                        {event.imageId && (
+                                        {event.imgThumb && (
                                             <Image
                                                 src={getCldImageUrl({
                                                     width: 400,
                                                     height: 400,
-                                                    src: event.imageId,
+                                                    src: event.imgThumb,
                                                 })}
                                                 alt={event.title}
                                                 fill
