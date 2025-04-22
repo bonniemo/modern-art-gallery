@@ -11,8 +11,8 @@ export default async function EventPage({
 }: {
     params: { id: string; title: string };
 }) {
-    const resolvedParams = await params;
-    const event = await getEventById(resolvedParams.id);
+    const { id } = await params;
+    const event = await getEventById(id);
 
     if (!event) {
         return (
