@@ -1,6 +1,7 @@
 import { getEvents } from "@/actions/actions";
 import Footer from "@/components/Footer";
 import { Event } from "@/types/types";
+import { formatEventDate } from "@/utils/dateFormatting";
 import { groupEventsByMonth } from "@/utils/eventGrouping";
 import { slugify } from "@/utils/slugify";
 import { getCldImageUrl } from "next-cloudinary";
@@ -25,8 +26,12 @@ export default async function EventCalendar() {
                                 <h4 className="text-header-s font-black mt-6 uppercase">
                                     {event.formattedDay}
                                 </h4>
-
-                                <section className="w-full shadow-xl md:grid md:grid-cols-3 border border-gray-400 mt-6 p-4">
+                                <Link
+                                    href={`/event-calendar/${
+                                        event.id
+                                    }/${slugify(event.title)}`}
+                                    className="w-full shadow-xl md:grid md:grid-cols-3 border border-gray-400 hover:border-black mt-6 p-4"
+                                >
                                     <div className="relative w-full aspect-[1/1]">
                                         {event.img && (
                                             <Image
@@ -44,21 +49,19 @@ export default async function EventCalendar() {
                                             {event.title}
                                         </h5>
                                         <p className="text-p-s text-gray font-light">
-                                            {event.formattedTime}
+                                            {formatEventDate(
+                                                event.date.seconds
+                                            )}
                                         </p>
                                         <p className="text-p-s leading-body-s my-6 overflow-hidden text-ellipsis line-clamp-3">
                                             {event.description}
                                         </p>
-                                        <Link
-                                            href={`/event-calendar/${
-                                                event.id
-                                            }/${slugify(event.title)}`}
-                                            className="text-p-s text-gray underline"
-                                        >
+
+                                        <span className="text-p-s text-gray underline hover:text-black block">
                                             Read more
-                                        </Link>
+                                        </span>
                                     </div>
-                                </section>
+                                </Link>
                             </div>
                         ))}
                     </section>
