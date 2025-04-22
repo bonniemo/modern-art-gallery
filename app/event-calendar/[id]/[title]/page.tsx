@@ -1,59 +1,65 @@
-"use client";
-import { useViewport } from "@/hooks/useViewport";
+import { getEventById } from "@/actions/actions";
+import { formatEventDate } from "@/utils/dateFormatting";
+import { getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
-import { useParams } from "next/navigation";
-import openStageMobile from "../../../../public/event-calendar/open-stage-mobile.png";
 import ButtonBackToCalendar from "../../ButtonBackToCalendar";
 import ButtonTicket from "../../ButtonTicket";
 
-const EventPage = () => {
-    const params = useParams();
-    const eventId = params.id;
-    const eventSlug = params.title;
+export default async function EventPage({
+    params,
+}: {
+    params: { id: string; title: string };
+}) {
+    const resolvedParams = await params;
+    const event = await getEventById(resolvedParams.id);
 
-    console.log("Event ID:", eventId, "Event slug:", eventSlug);
-    let buttonTitle: string = "Back";
-
-    const { width } = useViewport();
-    if (width && width > 768) {
-        buttonTitle = "Back to calendar";
+    if (!event) {
+        return (
+            <div className="p-4">
+                <h1>Event not found</h1>
+                <a
+                    href="/event-calendar"
+                    className="mt-4 px-4 py-2 bg-black text-white rounded"
+                >
+                    Return to Calendar
+                </a>
+            </div>
+        );
     }
+
+    const formattedDate = formatEventDate(event.date.seconds);
+
     return (
         <section>
             <section className="grid grid-cols-6">
-                <div className="col-start-1  row-start-1 z-50">
-                    <ButtonBackToCalendar title={buttonTitle} />
+                <div className="col-start-1 row-start-1 z-50">
+                    <ButtonBackToCalendar />
                 </div>
-                <div className="relative w-full aspect-[1/1] col-start-1 col-end-7 row-start-1">
+                <div className="relative w-full aspect-[4/2] col-start-1 col-end-7 row-start-1">
                     <Image
-                        src={openStageMobile}
-                        alt="girl singing"
+                        src={getCldImageUrl({
+                            src: event.img,
+                        })}
+                        alt={event.title}
                         fill
                         className="object-cover"
-                        priority
                     />
                 </div>
                 <div className="row-start-1 col-start-4 col-end-7 z-50 text-light flex flex-col items-end p-2">
                     <h2 className="max-w-max uppercase text-header-tiny md:text-header-s font-bold">
-                        Open stage night
+                        {event.title}
                     </h2>
                     <p className="max-w-max text-p-tiny md:text-p-m font-light">
-                        12th of April, 8pm
+                        {formattedDate}
                     </p>
                 </div>
             </section>
             <section className="p-4 md:p-8">
                 <h1 className="text-header-s leading-s mt-6 uppercase">
-                    Sing, dance or Hang back and enjoy
+                    {event.heading}
                 </h1>
                 <p className="text-p-s leading-body-s md:text-p-m md:leading-body-m font-light mt-6">
-                    Out highly appreciated open stage night is always a joy.
-                    Where community and creativity come together over
-                    exceptional coffee. Where community and creativity come
-                    together over exceptional coffee. Where community and
-                    creativity come together over exceptional coffee. Where
-                    community and creativity come together over exceptional
-                    coffee.
+                    {event.description}
                 </p>
                 <div className="mt-8">
                     <ButtonTicket />
@@ -61,6 +67,4 @@ const EventPage = () => {
             </section>
         </section>
     );
-};
-
-export default EventPage;
+}

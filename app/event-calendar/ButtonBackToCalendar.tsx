@@ -1,11 +1,11 @@
+"use client";
+import { useViewport } from "@/hooks/useViewport";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 
-type ButtonBackToCalendarProps = {
-    title: string;
-};
-
-const ButtonBackToCalendar = ({ title }: ButtonBackToCalendarProps) => {
+const ButtonBackToCalendar = () => {
+    const { width } = useViewport();
+    const buttonText = width && width > 756 ? "back to calendar" : "back";
     return (
         <Link
             href="/event-calendar"
@@ -16,7 +16,7 @@ const ButtonBackToCalendar = ({ title }: ButtonBackToCalendarProps) => {
             </div>
             <div className="bg-dark px-4 h-full flex justify-center items-center group-hover:bg-accent">
                 <p className="uppercase text-light text-p-s leading-body-s font-extrabold">
-                    {title}
+                    {buttonText}
                 </p>
             </div>
         </Link>

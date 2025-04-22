@@ -4,9 +4,7 @@ export interface Event {
     title: string;
     description: string;
     heading: string;
-    imgDesktop: string;
-    imgMobile: string;
-    imgThumb: string;
+    img: string;
 }
 
 export interface FormattedEvent extends Event {

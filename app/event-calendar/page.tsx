@@ -1,8 +1,8 @@
 import { getEvents } from "@/actions/actions";
 import Footer from "@/components/Footer";
-import { slugify } from "@/utils/slugify";
-import { groupEventsByMonth } from "@/utils/eventGrouping";
 import { Event } from "@/types/types";
+import { groupEventsByMonth } from "@/utils/eventGrouping";
+import { slugify } from "@/utils/slugify";
 import { getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,17 +28,14 @@ export default async function EventCalendar() {
 
                                 <section className="w-full shadow-xl md:grid md:grid-cols-3 border border-gray-400 mt-6 p-4">
                                     <div className="relative w-full aspect-[1/1]">
-                                        {event.imgThumb && (
+                                        {event.img && (
                                             <Image
                                                 src={getCldImageUrl({
-                                                    width: 400,
-                                                    height: 400,
-                                                    src: event.imgThumb,
+                                                    src: event.img,
                                                 })}
                                                 alt={event.title}
                                                 fill
                                                 className="object-cover"
-                                                sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         )}
                                     </div>
