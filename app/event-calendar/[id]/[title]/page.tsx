@@ -2,6 +2,7 @@ import { getEventById } from "@/actions/actions";
 import { formatEventDate } from "@/utils/dateFormatting";
 import { getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
+import Link from "next/link";
 import ButtonBackToCalendar from "../../ButtonBackToCalendar";
 import ButtonTicket from "../../ButtonTicket";
 
@@ -17,12 +18,12 @@ export default async function EventPage({
         return (
             <div className="p-4">
                 <h1>Event not found</h1>
-                <a
-                    href="/event-calendar"
+                <Link
+                    href="/event-cLinklendar"
                     className="mt-4 px-4 py-2 bg-black text-white rounded"
                 >
                     Return to Calendar
-                </a>
+                </Link>
             </div>
         );
     }
