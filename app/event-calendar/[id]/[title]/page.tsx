@@ -9,9 +9,10 @@ import ButtonTicket from "../../ButtonTicket";
 export default async function EventPage({
     params,
 }: {
-    params: { id: string };
+    params: { id: string; title: string };
 }) {
-    const { id } = await params;
+    const { id, title } = await params;
+
     const event = await getEventById(id);
 
     if (!event) {
