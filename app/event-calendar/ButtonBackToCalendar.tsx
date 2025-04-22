@@ -1,0 +1,26 @@
+import Link from "next/link";
+import { IoIosArrowBack } from "react-icons/io";
+
+type ButtonBackToCalendarProps = {
+    title: string;
+};
+
+const ButtonBackToCalendar = ({ title }: ButtonBackToCalendarProps) => {
+    return (
+        <Link
+            href="/event-calendar"
+            className="flex items-center w-max h-16 drop-shadow-2xl group"
+        >
+            <div className="bg-accent h-full flex items-center px-2 group-hover:bg-dark">
+                <IoIosArrowBack className="text-2xl text-light" />
+            </div>
+            <div className="bg-dark px-4 h-full flex justify-center items-center group-hover:bg-accent">
+                <p className="uppercase text-light text-p-s leading-body-s font-extrabold">
+                    {title}
+                </p>
+            </div>
+        </Link>
+    );
+};
+
+export default ButtonBackToCalendar;
