@@ -18,7 +18,6 @@ const Gallery = () => {
             </picture>
 
             <section className="mt-6 md:col-start-1 md:col-end-6 md:row-start-1 md:row-end-2">
-                {/* correct block for larger screens */}
                 <h2 className="uppercase mb-6 text-header-m leading-m lg:max-w-[21rem] md:max-w-[14rem]">
                     <span className="block md:inline">Your day </span>at the
                     gallery

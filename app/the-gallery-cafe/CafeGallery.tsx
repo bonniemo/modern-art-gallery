@@ -1,6 +1,6 @@
 const CafeGallery = () => {
     return (
-        <div className="pb-28 lg:mb-46 md:grid md:grid-cols-2 md:gap-4">
+        <div className="pb-28 lg:mb-46 md:grid md:grid-cols-2 md:gap-4 max-w-6xl m-auto">
             <picture className="md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-3">
                 <source
                     srcSet="/gallery-cafe/desktop/juice-bottles.png"
@@ -36,7 +36,7 @@ const CafeGallery = () => {
                 <h2 className="uppercase mb-6 text-header-m leading-m">
                     SAVOR THE <span className="block">MOMENT</span>
                 </h2>
-                <p className="lg:text-p-m lg:leading-body-m font-light">
+                <p className="text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-light">
                     Relax with a handcrafted coffee, fresh juices, or something
                     sweet as you take in the atmosphere around you.
                 </p>
