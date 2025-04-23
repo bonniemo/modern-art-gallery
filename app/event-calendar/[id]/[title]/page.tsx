@@ -42,6 +42,7 @@ export default async function EventPage(props: {
                         alt={event.title}
                         fill
                         className="object-cover"
+                        priority
                     />
                 </div>
                 <div className="row-start-1 col-start-4 col-end-7 z-50 text-light flex flex-col items-end p-2">

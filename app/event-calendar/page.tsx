@@ -41,6 +41,7 @@ export default async function EventCalendar() {
                                                 alt={event.title}
                                                 fill
                                                 className="object-cover"
+                                                priority
                                             />
                                         )}
                                     </div>
