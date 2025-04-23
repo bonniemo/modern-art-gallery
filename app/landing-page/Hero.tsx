@@ -16,7 +16,7 @@ const Hero = () => {
                     />
                     <img
                         src="/landing-page/mobile/image-hero.jpg"
-                        alt="Modern Art Gallery Hero"
+                        alt="Large-scale black and white portrait artwork featuring detailed glasses and facial features drawn in pencil or charcoal on a white wall. Two gallery visitors in casual attire are viewing the artwork, standing against the clean white gallery space. The minimalist setting emphasizes the dramatic scale of the portrait."
                         className="w-full h-full object-cover"
                     />
                 </picture>

@@ -12,7 +12,7 @@ const Gallery = () => {
                 />
                 <img
                     src="/landing-page/mobile/image-grid-1.jpg"
-                    alt="Gallery Grid 1"
+                    alt="Art gallery interior with white walls and polished dark floors. Several abstract artworks in earth tones are mounted on the walls. In the foreground, an orange and white sculptural piece sits on a black platform. Track lighting illuminates the space from exposed ceiling beams."
                     className="w-full h-full object-cover"
                 />
             </picture>
@@ -40,7 +40,7 @@ const Gallery = () => {
                 />
                 <img
                     src="/landing-page/mobile/image-grid-2.jpg"
-                    alt="Gallery Grid 2"
+                    alt="Minimalist gallery space with a single black and white abstract photograph centered on a white wall. A long wooden bench sits on grey tiled flooring beneath the artwork. The space features clean lines and fluorescent lighting in a dropped ceiling, creating a stark, modern exhibition environment."
                     className=" w-full h-full object-cover mt-8 md:mt-0"
                 />
             </picture>
@@ -56,7 +56,7 @@ const Gallery = () => {
                 />
                 <img
                     src="/landing-page/mobile/image-grid-3.jpg"
-                    alt="Gallery Grid 3"
+                    alt="Bright modern art gallery interior with high coffered ceilings and recessed lighting. Several framed artworks hang on pristine white walls. The space features warm wooden flooring, and visitors can be seen viewing the exhibition. The perspective creates a sweeping view down the length of the gallery."
                     className="mb-4 w-full h-full object-cover"
                 />
             </picture>
