@@ -31,14 +31,14 @@ const Footer = ({ bgColor }: FooterProp) => {
             <h3 className="uppercase md:m-0 md:col-start-1 md:row-start-1 text-header-s leading-s">
                 <span className="block">Modern</span> Art Gallery
             </h3>
-            <p className=" mt-8 md:mt-0 md:col-start-2 justify-self-center text-p-s leading-body-s font-light">
+            <p className=" mt-8 md:mt-0 md:col-start-2 md:justify-self-center text-p-s leading-body-s font-light">
                 Open seven days a week from 8am to 9pm.
                 <span className="block">
                     Find us at 99 King Street, Newport, USA.
                 </span>
             </p>
 
-            <section className="flex flex-col gap-4 sm:flex-row md:gap-6 text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-semibold mt-12 md:col-start-2 md:row-start-2 min-w-[19.5rem] justify-self-center">
+            <section className="flex flex-col gap-4 sm:flex-row md:gap-6 text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-semibold mt-12 md:col-start-2 md:row-start-2 min-w-[19.5rem] md:justify-self-center">
                 {navLinks.map((link) => (
                     <Link
                         key={link.href}
