@@ -6,14 +6,11 @@ import Link from "next/link";
 import ButtonBackToCalendar from "../../ButtonBackToCalendar";
 import ButtonTicket from "../../ButtonTicket";
 
-export default async function EventPage({
-    params,
-}: {
-    params: { id: string };
+export default async function EventPage(props: {
+    params: Promise<{ id: string }>;
 }) {
-    const { id } = await params;
-
-    const event = await getEventById(id);
+    const params = await props.params;
+    const event = await getEventById(params.id);
 
     if (!event) {
         return (
