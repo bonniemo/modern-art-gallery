@@ -8,11 +8,12 @@ import ButtonBackToCalendar from "../../ButtonBackToCalendar";
 import ButtonTicket from "../../ButtonTicket";
 
 type Props = {
-    params: { id: string; title: string };
+    params: Promise<{ id: string; title: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const event = await getEventById(params.id);
+    const resolvedParams = await params;
+    const event = await getEventById(resolvedParams.id);
 
     if (!event) {
         return {
