@@ -1,6 +1,49 @@
 import BtnGoHome from "@/components/BtnGoHome";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+    title: "Location | Modern Art Gallery (Portfolio Mockup)",
+    description:
+        "Mockup page – Not a real site, for developer portfolio only. Visit Modern Art Gallery at 99 King Street, Newport.",
+    openGraph: {
+        title: "Visit Modern Art Gallery | Location & Hours (Portfolio Mockup)",
+        description:
+            "Mockup page – Not a real site, for developer portfolio only. Find us at 99 King Street, Newport.",
+        type: "website",
+        locale: "en_US",
+        images: [
+            {
+                url: "/landing-page/desktop/image-map.png",
+                width: 1200,
+                height: 600,
+                alt: "Modern Art Gallery Location Map",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Visit Modern Art Gallery | Location & Hours (Portfolio Mockup)",
+        description:
+            "Mockup page – Not a real site, for developer portfolio only. Find us at 99 King Street, Newport.",
+        images: [
+            {
+                url: "/landing-page/desktop/image-map.png",
+                width: 1200,
+                height: 600,
+                alt: "Modern Art Gallery Location Map",
+            },
+        ],
+    },
+    keywords: [
+        "art gallery location",
+        "Newport art gallery",
+        "modern art museum",
+        "99 King Street",
+        "free art gallery",
+        "Rhode Island art",
+    ],
+};
+
 const Location = () => {
     return (
         <article>

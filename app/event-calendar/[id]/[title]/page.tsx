@@ -1,10 +1,55 @@
 import { getEventById } from "@/actions/actions";
 import { formatEventDate } from "@/utils/dateFormatting";
+import { Metadata } from "next";
 import { getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonBackToCalendar from "../../ButtonBackToCalendar";
 import ButtonTicket from "../../ButtonTicket";
+
+type Props = {
+    params: { id: string; title: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const event = await getEventById(params.id);
+
+    if (!event) {
+        return {
+            title: "Event Not Found | Modern Art Gallery (Portfolio Mockup)",
+            description:
+                "Mockup page – Not a real site, for developer portfolio only. The requested event could not be found.",
+        };
+    }
+
+    const formattedDate = formatEventDate(event.date.seconds);
+    const imageUrl = getCldImageUrl({ src: event.img });
+
+    return {
+        title: `${event.title} | Modern Art Gallery (Portfolio Mockup)`,
+        description: `Mockup page – Not a real site, for developer portfolio only. ${event.heading}. Join us on ${formattedDate} for this exciting event.`,
+        openGraph: {
+            title: `${event.title} (Portfolio Mockup)`,
+            description: `Mockup page – Not a real site, for developer portfolio only. ${event.heading}`,
+            images: [
+                {
+                    url: imageUrl,
+                    width: 1200,
+                    height: 630,
+                    alt: event.title,
+                },
+            ],
+            type: "article",
+            siteName: "Modern Art Gallery",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${event.title} (Portfolio Mockup)`,
+            description: `Mockup page – Not a real site, for developer portfolio only. ${event.heading}`,
+            images: [imageUrl],
+        },
+    };
+}
 
 export default async function EventPage(props: {
     params: Promise<{ id: string }>;

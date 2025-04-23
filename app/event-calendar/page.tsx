@@ -8,6 +8,53 @@ import { getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+    title: "Events | Modern Art Gallery (Portfolio Mockup)",
+    description:
+        "Mockup page – Not a real site, for developer portfolio only. Discover upcoming exhibitions, workshops, and cultural events at Modern Art Gallery.",
+    openGraph: {
+        title: "Events Calendar | Modern Art Gallery (Portfolio Mockup)",
+        description:
+            "Mockup page – Not a real site, for developer portfolio only. Discover upcoming exhibitions, workshops, and cultural events at Modern Art Gallery",
+        type: "website",
+        locale: "en_US",
+        images: [
+            {
+                url: "/open-stage.jpg", // Update the image path accordingly
+                width: 1200,
+                height: 630,
+                alt: "Singer performing at Modern Art Gallery open stage event",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Events Calendar | Modern Art Gallery (Portfolio Mockup)",
+        description:
+            "Mockup page – Not a real site, for developer portfolio only. Discover upcoming exhibitions, workshops, and cultural events at Modern Art Gallery",
+        images: [
+            {
+                url: "/open-stage.jpg", // Update the image path accordingly
+                width: 1200,
+                height: 630,
+                alt: "Singer performing at Modern Art Gallery open stage event",
+            },
+        ],
+    },
+    keywords: [
+        "art events",
+        "gallery exhibitions",
+        "art workshops",
+        "cultural events",
+        "modern art",
+        "art gallery events",
+    ],
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
+
 export default async function EventCalendar() {
     const events = (await getEvents()) as Event[];
     const groupedByMonth = groupEventsByMonth(events);
