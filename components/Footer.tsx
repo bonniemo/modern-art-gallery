@@ -38,7 +38,7 @@ const Footer = ({ bgColor }: FooterProp) => {
                 </span>
             </p>
 
-            <section className="flex gap-6 text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-semibold mt-12 md:col-start-2 md:row-start-2 min-w-[19.5rem] justify-self-center">
+            <section className="flex flex-col gap-4 sm:flex-row md:gap-6 text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-semibold mt-12 md:col-start-2 md:row-start-2 min-w-[19.5rem] justify-self-center">
                 {navLinks.map((link) => (
                     <Link
                         key={link.href}
