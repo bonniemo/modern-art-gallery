@@ -3,13 +3,15 @@ import { useViewport } from "@/hooks/useViewport";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 
-const ButtonBackToCalendar = () => {
+export default function ButtonBackToCalendar() {
     const { width } = useViewport();
     const buttonText = width && width > 756 ? "back to calendar" : "back";
+
     return (
         <Link
             href="/event-calendar"
             className="flex items-center w-max h-16 drop-shadow-2xl group"
+            aria-label="Return to event calendar"
         >
             <div className="bg-accent h-full flex items-center px-2 group-hover:bg-dark">
                 <IoIosArrowBack className="text-2xl text-light" />
@@ -21,6 +23,4 @@ const ButtonBackToCalendar = () => {
             </div>
         </Link>
     );
-};
-
-export default ButtonBackToCalendar;
+}
