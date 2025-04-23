@@ -1,6 +1,10 @@
 const CafeGallery = () => {
     return (
-        <div className="pb-28 lg:mb-46 md:grid md:grid-cols-2 md:gap-4 max-w-6xl m-auto">
+        <div
+            className="pb-28 lg:mb-46 md:grid md:grid-cols-2 md:gap-4 max-w-6xl m-auto"
+            role="region"
+            aria-label="Café gallery"
+        >
             <picture className="md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-3">
                 <source
                     srcSet="/gallery-cafe/desktop/juice-bottles.png"

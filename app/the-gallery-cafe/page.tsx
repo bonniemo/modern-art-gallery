@@ -48,12 +48,12 @@ export const metadata = {
 
 const GalleryCafePage = () => {
     return (
-        <>
+        <main role="main" aria-label="Gallery café page">
             <CafeHero />
             <OpeningHours />
             <CafeGallery />
             <Footer bgColor="black" />
-        </>
+        </main>
     );
 };
 

@@ -21,12 +21,14 @@ const Footer = ({ bgColor }: FooterProp) => {
     ];
 
     return (
-        <section
-            className={`px-6 pt-12 pb-6 md:px-10 md:py-14 md:grid md:grid-cols-[1fr, 2fr, 1fr] md:grid-rows-2  ${
+        <footer
+            className={`px-6 pt-12 pb-6 md:px-10 md:py-14 md:grid md:grid-cols-[1fr, 2fr, 1fr] md:grid-rows-2 ${
                 bgColor === "black"
                     ? "bg-dark text-light"
                     : "bg-accent text-dark"
             }`}
+            role="contentinfo"
+            aria-label="Site footer"
         >
             <h3 className="uppercase md:m-0 md:col-start-1 md:row-start-1 text-header-s leading-s">
                 <span className="block">Modern</span> Art Gallery
@@ -66,7 +68,7 @@ const Footer = ({ bgColor }: FooterProp) => {
                     />
                 ))}
             </section>
-        </section>
+        </footer>
     );
 };
 

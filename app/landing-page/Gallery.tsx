@@ -1,6 +1,10 @@
 const Gallery = () => {
     return (
-        <div className="p-4 md:p-6 mt-28 mb-28 lg:mb-46 md:grid md:grid-cols-12 md:gap-4 max-w-6xl m-auto">
+        <div
+            className="p-4 md:p-6 mt-28 mb-28 lg:mb-46 md:grid md:grid-cols-12 md:gap-4 max-w-6xl m-auto"
+            role="region"
+            aria-label="Gallery highlights"
+        >
             <picture className="md:col-start-6 md:col-end-13 md:row-start-1 md:row-end-2">
                 <source
                     srcSet="/landing-page/desktop/image-grid-1.jpg"

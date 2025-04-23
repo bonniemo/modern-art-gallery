@@ -2,7 +2,11 @@ import BtnLocation from "../../components/BtnLocation";
 
 const Hero = () => {
     return (
-        <article className="md:grid md:grid-cols-12 md:grid-rows-4">
+        <article
+            className="md:grid md:grid-cols-12 md:grid-rows-4"
+            role="banner"
+            aria-label="Gallery welcome section"
+        >
             <section className="lg:bg-dark lg:w-full lg:h-full col-start-1 col-end-5 row-start-1 row-end-5"></section>
             <section className="w-full lg:col-start-5 lg:col-end-9 md:col-start-1 md:col-end-7 row-start-1 row-end-5">
                 <picture>

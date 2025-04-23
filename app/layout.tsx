@@ -13,6 +13,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL(
+        process.env.NODE_ENV === "development"
+            ? "http://localhost:3000"
+            : "https://modern-art-gallery-eosin.vercel.app"
+    ),
     title: "Art Gallery",
     description: "An art gallery page built with Next.js",
 };

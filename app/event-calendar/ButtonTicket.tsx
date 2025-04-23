@@ -6,6 +6,7 @@ const ButtonTicket = () => {
         <Link
             href="/event-calendar"
             className="flex items-center w-max h-16 drop-shadow-lg group"
+            aria-label="Get tickets for this event"
         >
             <div className="bg-dark px-4 h-full flex justify-center items-center group-hover:bg-accent">
                 <p className="uppercase text-light text-p-s leading-body-s font-extrabold">

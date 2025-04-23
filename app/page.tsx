@@ -39,11 +39,11 @@ export const metadata = {
 
 const Home = () => {
     return (
-        <>
+        <main role="main" aria-label="Modern Art Gallery home page">
             <Hero />
             <Gallery />
             <Footer bgColor="black" />
-        </>
+        </main>
     );
 };
 

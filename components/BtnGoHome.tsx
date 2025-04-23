@@ -4,8 +4,15 @@ import { IoIosArrowBack } from "react-icons/io";
 
 const BtnGoHome = () => {
     return (
-        <Link href="/" className="flex items-center w-max h-16 group">
-            <div className="bg-accent h-full flex items-center px-2 group-hover:bg-dark">
+        <Link
+            href="/"
+            className="flex items-center w-max h-16 group"
+            aria-label="Navigate back to home page"
+        >
+            <div
+                className="bg-accent h-full flex items-center px-2 group-hover:bg-dark"
+                aria-hidden="true"
+            >
                 <IoIosArrowBack className="text-2xl text-light" />
             </div>
             <div className="bg-dark h-full w-52 flex justify-center items-center group-hover:bg-accent">
