@@ -61,11 +61,11 @@ export default async function EventPage(props: {
 
     if (!event) {
         return (
-            <div className="p-4">
-                <h1>Event not found</h1>
+            <div className="p-4 space-y-6">
+                <h1 className="text-xl">Event not found</h1>
                 <Link
-                    href="/event-cLinklendar"
-                    className="mt-4 px-4 py-2 bg-black text-white rounded"
+                    href="/event-calendar"
+                    className=" px-4 py-2 bg-black text-white rounded"
                 >
                     Return to Calendar
                 </Link>
