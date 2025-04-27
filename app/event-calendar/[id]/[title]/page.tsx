@@ -84,7 +84,7 @@ export default async function EventPage(props: {
                             <ButtonBackToCalendar aria-label="Return to event calendar" />
                         </div>
                         <div
-                            className="relative w-full aspect-[4/2] col-start-1 col-end-7 row-start-1"
+                            className="relative w-full aspect-square md:aspect-[4/2] col-start-1 col-end-7 row-start-1"
                             role="img"
                             aria-label={`Image for ${event.title}`}
                         >
