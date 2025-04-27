@@ -1,11 +1,11 @@
 const Gallery = () => {
     return (
         <div
-            className="p-4 md:p-6 mt-28 mb-28 lg:mb-46 md:grid md:grid-cols-12 md:gap-4 max-w-6xl m-auto"
+            className="p-4 md:p-6 mt-28 mb-28 lg:mb-46 grid md:grid-cols-12 grid-rows-[auto] gap-4 max-w-6xl m-auto"
             role="region"
             aria-label="Gallery highlights"
         >
-            <picture className="md:col-start-6 md:col-end-13 md:row-start-1 md:row-end-2">
+            <picture className="row-start-1 row-end-2 md:col-start-6 md:col-end-13 md:row-start-1 md:row-end-2">
                 <source
                     srcSet="/landing-page/desktop/image-grid-1.jpg"
                     media="(min-width: 1000px)"
@@ -21,7 +21,7 @@ const Gallery = () => {
                 />
             </picture>
 
-            <section className="mt-6 md:col-start-1 md:col-end-6 md:row-start-1 md:row-end-2">
+            <section className="row-start-2 row-end-3 mt-2 md:col-start-1 md:col-end-6 md:row-start-1 md:row-end-2">
                 <h2 className="uppercase mb-6 text-header-m leading-m lg:max-w-[21rem] md:max-w-[14rem]">
                     <span className="block md:inline">Your day </span>at the
                     gallery
@@ -33,7 +33,7 @@ const Gallery = () => {
                 </p>
             </section>
 
-            <picture className="md:col-start-1 md:col-end-8 md:row-start-2 md:row-end-4 ">
+            <picture className="row-start-3 row-end-4 md:col-start-1 md:col-end-8 md:row-start-2 md:row-end-4">
                 <source
                     srcSet="/landing-page/desktop/image-grid-2.jpg"
                     media="(min-width: 1000px)"
@@ -45,11 +45,11 @@ const Gallery = () => {
                 <img
                     src="/landing-page/mobile/image-grid-2.jpg"
                     alt="Minimalist gallery space with a single black and white abstract photograph centered on a white wall. A long wooden bench sits on grey tiled flooring beneath the artwork. The space features clean lines and fluorescent lighting in a dropped ceiling, creating a stark, modern exhibition environment."
-                    className=" w-full h-full object-cover mt-8 md:mt-0"
+                    className=" w-full h-full object-cover md:mt-0"
                 />
             </picture>
 
-            <picture className="md:col-start-8 md:col-end-13 md:row-start-2 md:row-end-3">
+            <picture className="row-start-4 row-end-5 md:col-start-8 md:col-end-13 md:row-start-2 md:row-end-3">
                 <source
                     srcSet="/landing-page/desktop/image-grid-3.jpg"
                     media="(min-width: 1000px)"
@@ -65,7 +65,7 @@ const Gallery = () => {
                 />
             </picture>
 
-            <section className="bg-dark text-light px-6 py-8 md:col-start-8 md:col-end-13 md:row-start-3 md:row-end-4 md:h-full">
+            <section className="row-start-5 row-end-6 bg-dark text-light px-6 py-8 md:col-start-8 md:col-end-13 md:row-start-3 md:row-end-4 md:h-full">
                 <h2 className="uppercase mb-6 text-header-m leading-m">
                     Come &amp; be <span className="block">inspired</span>
                 </h2>
