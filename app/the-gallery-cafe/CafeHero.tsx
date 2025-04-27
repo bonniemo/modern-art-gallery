@@ -4,7 +4,7 @@ import ButtonEventCalendar from "./ButtonEventCalendar";
 
 const CafeHero = () => {
     return (
-        <section className="flex flex-wrap md:flex-nowrap md:gap-8 md:pt-24 md:pb-8 md:px-16">
+        <section className="flex flex-wrap md:flex-nowrap md:gap-10 md:pt-24 md:pb-8 md:px-16">
             <section className="flex flex-col justify-center order-2 md:order-1 mt-10 md:mt-0 px-4 md:px-0 md:mx-auto">
                 <h1 className="text-header-l leading-l md:text-header-m md:leading-m xl:text-header-xl xl:leading-xl">
                     THE GALLERY
