@@ -78,8 +78,9 @@ export default async function EventCalendar() {
                                         href={`/event-calendar/${
                                             event.id
                                         }/${slugify(event.title)}`}
+                                        className="md:contents"
                                     >
-                                        <div className="relative w-full aspect-[1/1]">
+                                        <div className="relative w-full aspect-[1/1] md:col-start-1 md:col-end-2 md:row-start-1">
                                             {event.img && (
                                                 <Image
                                                     src={getCldImageUrl({
@@ -92,7 +93,7 @@ export default async function EventCalendar() {
                                                 />
                                             )}
                                         </div>
-                                        <div className="px-2 md:px-6 md:mt-0 md:col-start-2 col-end-4">
+                                        <div className="px-2 md:px-6 md:mt-0 md:col-start-2 md:col-end-4 md:row-start-1">
                                             <h5 className="text-header-xs md:text-header-s font-black">
                                                 {event.title}
                                             </h5>
