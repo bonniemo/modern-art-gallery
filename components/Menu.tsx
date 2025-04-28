@@ -6,10 +6,10 @@ const Menu = () => {
     const [open, setOpen] = useState(false);
 
     const navLinks = [
-        { href: "/", text: "Home", delay: "delay-[300ms]" },
-        { href: "/", text: "Location", delay: "delay-[400ms]" },
-        { href: "/", text: "Event Calendar", delay: "delay-[500ms]" },
-        { href: "/", text: "The Gallery Café", delay: "delay-[600ms]" },
+        { href: "/", text: "Home", delay: "delay-[400ms]" },
+        { href: "/", text: "Location", delay: "delay-[500ms]" },
+        { href: "/", text: "Event Calendar", delay: "delay-[600ms]" },
+        { href: "/", text: "The Gallery Café", delay: "delay-[700ms]" },
     ];
 
     return (
@@ -54,12 +54,12 @@ const Menu = () => {
                         <div
                             key={link.text}
                             className={`
-                                transition-all duration-500 ease-in-out
+                                transition-all duration-[800ms] ease-out
                                 ${link.delay}
                                 ${
                                     open
                                         ? "opacity-100 translate-x-0"
-                                        : "opacity-0 -translate-x-4"
+                                        : "opacity-0 -translate-x-8"
                                 }
                             `}
                         >
