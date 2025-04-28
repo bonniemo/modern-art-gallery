@@ -65,7 +65,7 @@ const Menu = () => {
                         >
                             <Link
                                 href={link.href}
-                                className="transition-colors duration-200 hover:text-light"
+                                className="transition-all duration-200 hover:text-light hover:translate-x-2 inline-block"
                             >
                                 {link.text}
                             </Link>
