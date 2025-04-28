@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const Menu = () => {
     const [open, setOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const router = useRouter();
 
     const navLinks = [
         { href: "/", text: "Home", delay: "delay-[400ms]" },
@@ -50,6 +52,18 @@ const Menu = () => {
             };
         }
     }, [open]);
+
+    const handleNavigation = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        href: string
+    ) => {
+        e.preventDefault();
+        setOpen(false);
+        // Wait for menu close animation to complete
+        setTimeout(() => {
+            router.push(href);
+        }, 300);
+    };
 
     return (
         <>
@@ -112,7 +126,7 @@ const Menu = () => {
                             <Link
                                 href={link.href}
                                 className="transition-all duration-200 hover:text-light hover:translate-x-2 inline-block focus:outline-none focus-visible:text-light focus-visible:translate-x-2"
-                                onClick={() => setOpen(false)}
+                                onClick={(e) => handleNavigation(e, link.href)}
                             >
                                 {link.text}
                             </Link>
