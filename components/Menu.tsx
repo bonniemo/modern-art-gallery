@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const Menu = () => {
     const [open, setOpen] = useState(false);
+    const [navigatingTo, setNavigatingTo] = useState<string | null>(null);
     const menuRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
 
@@ -58,18 +59,23 @@ const Menu = () => {
         href: string
     ) => {
         e.preventDefault();
-        setOpen(false);
-        // Wait for menu close animation to complete
-        setTimeout(() => {
-            router.push(href);
-        }, 300);
+        setNavigatingTo(href);
+
+        const handleRouteComplete = () => {
+            setOpen(false);
+            setNavigatingTo(null);
+            window.removeEventListener("load", handleRouteComplete);
+        };
+
+        window.addEventListener("load", handleRouteComplete);
+        router.push(href);
     };
 
     return (
         <>
             <button
                 onClick={() => setOpen(!open)}
-                className="relative w-8 h-8 flex flex-col justify-center items-center group z-50"
+                className="relative w-8 h-8 flex flex-col justify-center items-center group z-[200]"
                 aria-label="Toggle Menu"
                 aria-expanded={open}
                 aria-controls="main-menu"
@@ -97,8 +103,8 @@ const Menu = () => {
                 role="dialog"
                 aria-modal="true"
                 aria-label="Main menu"
-                className={`fixed top-0 left-0 w-screen h-screen bg-accent z-40
-                transition-all duration-300 ease-in-out
+                className={`fixed top-0 left-0 w-screen h-screen bg-accent z-[100]
+                transition-all duration-300 ease-in-out overflow-hidden
                 ${
                     open
                         ? "translate-x-0 opacity-100"
@@ -106,7 +112,8 @@ const Menu = () => {
                 }`}
             >
                 <div
-                    className={`px-8 py-16 flex flex-col gap-8 font-big-shoulders uppercase font-black text-header-s
+                    className={`h-full w-full overflow-y-auto
+                    px-8 py-16 flex flex-col gap-8 font-big-shoulders uppercase font-black text-header-s md:text-header-m
                     transition-all duration-300 delay-[150ms]
                     ${open ? "opacity-100" : "opacity-0"}`}
                 >
@@ -125,10 +132,25 @@ const Menu = () => {
                         >
                             <Link
                                 href={link.href}
-                                className="transition-all duration-200 hover:text-light hover:translate-x-2 inline-block focus:outline-none focus-visible:text-light focus-visible:translate-x-2"
+                                className={`
+                                    transition-all duration-200 
+                                    hover:text-light hover:translate-x-2 
+                                    inline-block focus:outline-none 
+                                    focus-visible:text-light focus-visible:translate-x-2
+                                    ${
+                                        navigatingTo === link.href
+                                            ? "cursor-wait opacity-50"
+                                            : ""
+                                    }
+                                `}
                                 onClick={(e) => handleNavigation(e, link.href)}
                             >
                                 {link.text}
+                                {navigatingTo === link.href && (
+                                    <span className="ml-2 inline-block animate-spin">
+                                        ⟳
+                                    </span>
+                                )}
                             </Link>
                         </div>
                     ))}
