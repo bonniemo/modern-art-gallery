@@ -1,10 +1,15 @@
+import Menu from "@/components/Menu";
+import { useViewport } from "@/hooks/useViewport";
 import girlWithMug from "@/public/gallery-cafe/desktop/girl-with-mug.jpg";
 import Image from "next/image";
 import ButtonEventCalendar from "./ButtonEventCalendar";
 
 const CafeHero = () => {
     return (
-        <section className="flex flex-wrap md:flex-nowrap md:gap-10 md:pt-24 md:pb-8 md:px-16">
+        <section className="relative flex flex-wrap md:flex-nowrap md:gap-10 md:pt-24 md:pb-8 md:px-16">
+            <div className=" absolute top-0 right-0">
+                <Menu />
+            </div>
             <section className="flex flex-col justify-center order-2 md:order-1 mt-10 md:mt-0 px-4 md:px-0 md:mx-auto">
                 <h1 className="text-header-l leading-l md:text-header-m md:leading-m xl:text-header-xl xl:leading-xl">
                     THE GALLERY

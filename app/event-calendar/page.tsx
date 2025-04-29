@@ -62,7 +62,7 @@ export default async function EventCalendar() {
 
     return (
         <>
-            <div className="flex justify-end p-2 md:px-4">
+            <div className="flex justify-end">
                 <Menu />
             </div>
             <section className="px-4 pb-28">
