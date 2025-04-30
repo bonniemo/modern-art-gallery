@@ -114,7 +114,7 @@ const Menu = () => {
             >
                 <div
                     className={`h-full w-full overflow-y-auto
-                    px-8 py-16 flex flex-col gap-8 font-big-shoulders uppercase font-black text-header-s md:text-header-m
+                    px-8 py-16 flex flex-col gap-4 font-big-shoulders uppercase font-black text-header-xs md:text-header-s
                     transition-all duration-300 delay-[150ms]
                     ${open ? "opacity-100" : "opacity-0"}`}
                 >
