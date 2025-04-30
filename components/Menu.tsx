@@ -76,23 +76,23 @@ const Menu = () => {
             <div className="p-2">
                 <button
                     onClick={() => setOpen(!open)}
-                    className="relative w-11 h-11 flex flex-col justify-center items-center group z-[200]"
+                    className="relative w-11 h-11 flex flex-col justify-center items-center bg-white/20 rounded-lg group z-[200] hover:cursor-pointer hover:bg-accent/60 transition-colors duration-300"
                     aria-label="Toggle Menu"
                     aria-expanded={open}
                     aria-controls="main-menu"
                 >
                     <span
-                        className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out ${
+                        className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out group-hover:bg-white ${
                             open ? "rotate-45 translate-y-2" : ""
                         }`}
                     />
                     <span
-                        className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out my-1 ${
+                        className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out my-1 group-hover:bg-white ${
                             open ? "opacity-0" : ""
                         }`}
                     />
                     <span
-                        className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out ${
+                        className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out group-hover:bg-white ${
                             open ? "-rotate-45 -translate-y-2" : ""
                         }`}
                     />

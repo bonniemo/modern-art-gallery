@@ -1,5 +1,4 @@
 import Menu from "@/components/Menu";
-import { useViewport } from "@/hooks/useViewport";
 import girlWithMug from "@/public/gallery-cafe/desktop/girl-with-mug.jpg";
 import Image from "next/image";
 import ButtonEventCalendar from "./ButtonEventCalendar";
