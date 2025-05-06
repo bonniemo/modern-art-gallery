@@ -1,12 +1,16 @@
+import Menu from "@/components/Menu";
 import BtnLocation from "../../components/BtnLocation";
 
 const Hero = () => {
     return (
         <article
-            className="md:grid md:grid-cols-12 md:grid-rows-4"
+            className="relative md:grid md:grid-cols-12 md:grid-rows-4"
             role="banner"
             aria-label="Gallery welcome section"
         >
+            <div className=" absolute top-0 right-0">
+                <Menu />
+            </div>
             <section className="xl:bg-dark xl:w-full xl:h-full col-start-1 col-end-5 row-start-1 row-end-5"></section>
             <section className="w-full xl:col-start-5 xl:col-end-9 md:col-start-1 md:col-end-7 row-start-1 row-end-5">
                 <picture>

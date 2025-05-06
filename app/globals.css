@@ -49,6 +49,10 @@
     /* body */
     --leading-body-m: 2rem;
     --leading-body-s: 1.75rem;
+
+    /* FONTS */
+    --font-big-shoulders: var(--font-big-shoulders), sans-serif;
+    --font-outfit: var(--font-outfit), sans-serif;
 }
 
 h1 {

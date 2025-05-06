@@ -1,5 +1,6 @@
 import { getEvents } from "@/actions/actions";
 import Footer from "@/components/Footer";
+import Menu from "@/components/Menu";
 import { Event } from "@/types/types";
 import { formatEventDate } from "@/utils/dateFormatting";
 import { groupEventsByMonth } from "@/utils/eventGrouping";
@@ -61,6 +62,9 @@ export default async function EventCalendar() {
 
     return (
         <>
+            <div className="flex justify-end">
+                <Menu />
+            </div>
             <section className="px-4 pb-28">
                 {Object.values(groupedByMonth).map(({ month, events }) => (
                     <section key={month}>
