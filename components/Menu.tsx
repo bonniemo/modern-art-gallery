@@ -1,106 +1,85 @@
 "use client";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useMenuAccessibility } from "@/hooks/useMenuAccessibility";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { MenuItem, navLinks } from "./NavigationItems";
 
 const Menu = () => {
     const [open, setOpen] = useState(false);
     const [navigatingTo, setNavigatingTo] = useState<string | null>(null);
-    const menuRef = useRef<HTMLDivElement>(null);
+    const menuButtonRef = useRef<HTMLButtonElement>(null);
+    const menuItemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
     const router = useRouter();
+    const pathname = usePathname();
 
-    const navLinks = [
-        { href: "/", text: "Home", delay: "delay-[400ms]" },
-        { href: "/location", text: "Location", delay: "delay-[500ms]" },
-        {
-            href: "/event-calendar",
-            text: "Event Calendar",
-            delay: "delay-[600ms]",
-        },
-        {
-            href: "/the-gallery-cafe",
-            text: "The Gallery Café",
-            delay: "delay-[700ms]",
-        },
-    ];
+    const handleClose = () => setOpen(false);
 
-    // Handle ESC key
+    const { setItemRef } = useMenuAccessibility({
+        isOpen: open,
+        onClose: handleClose,
+        menuButtonRef,
+        menuItemRefs,
+    });
+
     useEffect(() => {
-        const handleEsc = (e: KeyboardEvent) => {
-            if (e.key === "Escape") setOpen(false);
-        };
-        if (open) {
-            window.addEventListener("keydown", handleEsc);
+        if (navigatingTo) {
+            setNavigatingTo(null);
+            setOpen(false);
         }
-        return () => window.removeEventListener("keydown", handleEsc);
-    }, [open]);
-
-    // Manage focus and scroll lock
-    useEffect(() => {
-        if (open) {
-            const lastFocused = document.activeElement;
-            const firstLink = menuRef.current?.querySelector("a");
-            firstLink?.focus();
-            // Prevent background scroll
-            document.body.style.overflow = "hidden";
-
-            return () => {
-                // Restore focus and scroll when menu closes
-                if (lastFocused instanceof HTMLElement) {
-                    lastFocused.focus();
-                }
-                document.body.style.overflow = "unset";
-            };
-        }
-    }, [open]);
+    }, [pathname]);
 
     const handleNavigation = (
         e: React.MouseEvent<HTMLAnchorElement>,
         href: string
     ) => {
         e.preventDefault();
-        setNavigatingTo(href);
 
-        const handleRouteComplete = () => {
+        if (pathname === href) {
             setOpen(false);
-            setNavigatingTo(null);
-            window.removeEventListener("load", handleRouteComplete);
-        };
+            return;
+        }
 
-        window.addEventListener("load", handleRouteComplete);
+        setNavigatingTo(href);
         router.push(href);
     };
+
+    const toggleMenu = () => setOpen((menuState) => !menuState);
 
     return (
         <>
             <div className="p-2">
                 <button
-                    onClick={() => setOpen(!open)}
+                    ref={menuButtonRef}
+                    onClick={toggleMenu}
                     className="relative w-11 h-11 flex flex-col justify-center items-center bg-white/20 rounded-lg group z-[200] hover:cursor-pointer hover:bg-accent/60 transition-colors duration-300"
-                    aria-label="Toggle Menu"
+                    aria-label={open ? "Close Menu" : "Open Menu"}
                     aria-expanded={open}
                     aria-controls="main-menu"
+                    aria-haspopup="true"
                 >
                     <span
                         className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out group-hover:bg-white ${
                             open ? "rotate-45 translate-y-2" : ""
                         }`}
+                        aria-hidden="true"
                     />
                     <span
                         className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out my-1 group-hover:bg-white ${
                             open ? "opacity-0" : ""
                         }`}
+                        aria-hidden="true"
                     />
                     <span
                         className={`block w-8 h-1 bg-black rounded transition-all duration-500 ease-in-out group-hover:bg-white ${
                             open ? "-rotate-45 -translate-y-2" : ""
                         }`}
+                        aria-hidden="true"
                     />
                 </button>
             </div>
+
             <section
                 id="main-menu"
-                ref={menuRef}
                 role="dialog"
                 aria-modal="true"
                 aria-label="Main menu"
@@ -117,43 +96,22 @@ const Menu = () => {
                     px-8 py-16 flex flex-col gap-4 font-big-shoulders uppercase font-black text-header-xs md:text-header-s
                     transition-all duration-300 delay-[150ms]
                     ${open ? "opacity-100" : "opacity-0"}`}
+                    role="menu"
+                    aria-orientation="vertical"
                 >
-                    {navLinks.map((link) => (
-                        <div
+                    {navLinks.map((link, index) => (
+                        <MenuItem
                             key={link.text}
-                            className={`
-                                transition-all duration-[800ms] ease-out
-                                ${link.delay}
-                                ${
-                                    open
-                                        ? "opacity-100 translate-x-0"
-                                        : "opacity-0 -translate-x-8"
-                                }
-                            `}
-                        >
-                            <Link
-                                href={link.href}
-                                className={`
-                                    transition-all duration-200 
-                                    hover:text-light hover:translate-x-2 
-                                    inline-block focus:outline-none 
-                                    focus-visible:text-light focus-visible:translate-x-2
-                                    ${
-                                        navigatingTo === link.href
-                                            ? "cursor-wait opacity-50"
-                                            : ""
-                                    }
-                                `}
-                                onClick={(e) => handleNavigation(e, link.href)}
-                            >
-                                {link.text}
-                                {navigatingTo === link.href && (
-                                    <span className="ml-2 inline-block animate-spin">
-                                        ⟳
-                                    </span>
-                                )}
-                            </Link>
-                        </div>
+                            ref={(el) => setItemRef(index, el)}
+                            href={link.href}
+                            text={link.text}
+                            delay={link.delay}
+                            isActive={pathname === link.href}
+                            isNavigating={navigatingTo === link.href}
+                            onClick={handleNavigation}
+                            isMenuOpen={open}
+                            tabIndex={open ? 0 : -1}
+                        />
                     ))}
                 </div>
             </section>
