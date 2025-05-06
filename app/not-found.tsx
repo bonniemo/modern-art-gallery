@@ -5,19 +5,19 @@ import brokenHeart from "../public/not-found/marek-studzinski-sL4I_UYrtGo-unspla
 const notFound = () => {
     return (
         <section className="bg-[#040404] h-screen overflow-hidden grid grid-cols-6 grid-rows-6 content-center">
-            <div className="min-w-[220px] h-screen md:col-start-2 md:col-end-7 md:row-start-2 md:row-end-6">
+            <div className="min-w-[220px] col-start-1 md:col-start-2 col-end-7 row-start-2 row-end-6 px-6">
                 <Image
                     src={brokenHeart}
                     alt="artwork, black background broken heart sculpture"
                     width={800}
                     height={600}
-                    className="md:w-[25rem] max-h-[24rem] h-auto self-center"
+                    className="w-[80%] md:w-[23rem] h-auto self-center"
                     priority
                 />
             </div>
-            <div className="md:col-start-3 lg:col-start-2 md:col-end-7 lg:col-end-6 md:row-start-3 md:row-end-7 h-full justify-self-center">
-                <div className=" bg-[#040404]/70 px-4 py-2 md:px-6 md:py-4 bg-opacity-30 rounded-lg h-min w-max ">
-                    <h1 className=" text-gray-200 drop-shadow-2xl text-header-s leading-s md:text-header-m md:leading-m lg:text-header-l lg:text-leading-l uppercase">
+            <div className="col-start-3 col-end-7 md:col-start-3 lg:col-start-2 md:col-end-7 lg:col-end-6 row-start-3 md:row-end-7 h-full justify-self-center">
+                <div className=" bg-[#040404]/70 px-4 py-2 md:px-6 md:py-4 bg-opacity-30 rounded-lg h-min ">
+                    <h1 className=" text-gray-200 drop-shadow-2xl text-header-xs leading-s md:text-header-m md:leading-m lg:text-header-l lg:text-leading-l uppercase">
                         404 | Not Found
                     </h1>
                     <p className="md:text-p-s md:leading-body-s text-p-s leading-body-s text-gray-200 mt-4">
