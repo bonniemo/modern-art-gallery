@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { IoLogoFacebook } from "react-icons/io";
+import FooterNav from "./FooterNav";
 
 type FooterProp = {
     bgColor: string;
@@ -12,12 +12,6 @@ const Footer = ({ bgColor }: FooterProp) => {
         { Icon: IoLogoFacebook, id: "facebook" },
         { Icon: FaInstagram, id: "instagram" },
         { Icon: FaTwitter, id: "twitter" },
-    ];
-
-    const navLinks = [
-        { href: "/", text: "Home" },
-        { href: "/the-gallery-cafe", text: "The Gallery Café" },
-        { href: "/location", text: "Location" },
     ];
 
     return (
@@ -40,21 +34,7 @@ const Footer = ({ bgColor }: FooterProp) => {
                 </span>
             </p>
 
-            <section className="flex flex-col gap-4 sm:flex-row md:gap-6 text-p-s leading-body-s lg:text-p-m lg:leading-body-m font-semibold mt-12 md:col-start-2 md:row-start-2 min-w-[19.5rem] md:justify-self-center">
-                {navLinks.map((link) => (
-                    <Link
-                        key={link.href}
-                        className={
-                            bgColor === "black"
-                                ? "hover:text-accent"
-                                : "hover:text-light"
-                        }
-                        href={link.href}
-                    >
-                        {link.text}
-                    </Link>
-                ))}
-            </section>
+            <FooterNav bgColor={bgColor} />
 
             <section className="mt-12 flex gap-4 text-xl md:m-0 md:col-start-3 md:row-start-1 md:justify-self-end">
                 {socialIcons.map(({ Icon, id }) => (

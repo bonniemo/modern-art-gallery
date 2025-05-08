@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { forwardRef, MouseEvent } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 export const navLinks = [
     { href: "/", text: "Home", delay: "delay-[400ms]" },
@@ -66,14 +67,7 @@ export const MenuItem = forwardRef<HTMLAnchorElement, MenuItemProps>(
                     aria-current={isActive ? "page" : undefined}
                 >
                     {text}
-                    {isNavigating && (
-                        <span
-                            className="ml-2 inline-block animate-spin"
-                            aria-hidden="true"
-                        >
-                            ⟳
-                        </span>
-                    )}
+                    {isNavigating && <LoadingSpinner color="light" />}
                 </Link>
             </div>
         );
