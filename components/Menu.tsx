@@ -40,7 +40,9 @@ const Menu = () => {
         }
 
         setNavigatingTo(href);
-        router.push(href);
+        setTimeout(() => {
+            router.push(href);
+        }, 300);
     };
 
     const toggleMenu = () => setOpen((menuState) => !menuState);
@@ -97,21 +99,24 @@ const Menu = () => {
                     transition-all duration-300 delay-[150ms]
                     ${open ? "opacity-100" : "opacity-0"}`}
                     role="menu"
-                    aria-orientation="vertical"
                 >
                     {navLinks.map((link, index) => (
-                        <MenuItem
+                        <div
+                            className="flex items-center w-max"
                             key={link.text}
-                            ref={(element) => setItemRef(index, element)}
-                            href={link.href}
-                            text={link.text}
-                            delay={link.delay}
-                            isActive={pathname === link.href}
-                            isNavigating={navigatingTo === link.href}
-                            onClick={handleNavigation}
-                            isMenuOpen={open}
-                            tabIndex={open ? 0 : -1}
-                        />
+                        >
+                            <MenuItem
+                                ref={(element) => setItemRef(index, element)}
+                                href={link.href}
+                                text={link.text}
+                                delay={link.delay}
+                                isActive={pathname === link.href}
+                                isNavigating={navigatingTo === link.href}
+                                onClick={handleNavigation}
+                                isMenuOpen={open}
+                                tabIndex={open ? 0 : -1}
+                            />
+                        </div>
                     ))}
                 </div>
             </section>

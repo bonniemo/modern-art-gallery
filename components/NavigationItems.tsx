@@ -56,8 +56,8 @@ export const MenuItem = forwardRef<HTMLAnchorElement, MenuItemProps>(
                     className={`
                         transition-all duration-200
                         hover:text-light hover:translate-x-2
-                        inline-block focus:outline-none
-                        focus-visible:text-light focus-visible:translate-x-2
+                        focus:outline-none
+                        focus-visible:text-light focus-visible:translate-x-2 flex items-center
                         ${isActive ? "text-light" : ""}
                         ${isNavigating ? "cursor-wait opacity-50" : ""}
                     `}
