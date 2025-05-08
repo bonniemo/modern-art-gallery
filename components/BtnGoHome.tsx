@@ -1,11 +1,25 @@
 "use client";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import LoadingSpinner from "./LoadingSpinner";
 
 const BtnGoHome = () => {
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setLoading(true);
+
+        setTimeout(() => {
+            router.push("/");
+        }, 300);
+    };
+
     return (
-        <Link
-            href="/"
+        <button
+            onClick={handleClick}
             className="flex items-center w-max h-16 group"
             aria-label="Navigate back to home page"
         >
@@ -13,14 +27,18 @@ const BtnGoHome = () => {
                 className="bg-accent h-full flex items-center px-2 group-hover:bg-dark"
                 aria-hidden="true"
             >
-                <IoIosArrowBack className="text-2xl text-light" />
+                {loading ? (
+                    <LoadingSpinner />
+                ) : (
+                    <IoIosArrowBack className="text-2xl text-light" />
+                )}
             </div>
             <div className="bg-dark h-full w-52 flex justify-center items-center group-hover:bg-accent">
                 <p className="uppercase text-light text-p-s leading-body-s font-extrabold">
                     Back to home
                 </p>
             </div>
-        </Link>
+        </button>
     );
 };
 
