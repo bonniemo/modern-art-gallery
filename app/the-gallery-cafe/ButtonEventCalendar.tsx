@@ -30,7 +30,7 @@ const ButtonEventCalendar = () => {
             </div>
             <div className="bg-accent h-full flex items-center px-2 group-hover:bg-dark">
                 {loading ? (
-                    <LoadingSpinner />
+                    <LoadingSpinner color="light" />
                 ) : (
                     <IoIosArrowForward className="text-2xl text-light" />
                 )}
