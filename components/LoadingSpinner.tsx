@@ -1,13 +1,11 @@
 const LoadingSpinner = () => {
     return (
-        <span role="status">
+        <span role="status" className="p-2">
             <span className="sr-only">Loading...</span>
-            <span
-                className="p-2 inline-block animate-spin text-light"
-                aria-hidden="true"
-            >
-                ⟳
-            </span>
+            <div
+                className=" w-5 h-5 border-2 border-light border-t-transparent rounded-full animate-spin"
+                aria-label="Loading"
+            />
         </span>
     );
 };
