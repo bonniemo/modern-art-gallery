@@ -102,7 +102,7 @@ const Menu = () => {
                     {navLinks.map((link, index) => (
                         <MenuItem
                             key={link.text}
-                            ref={(el) => setItemRef(index, el)}
+                            ref={(element) => setItemRef(index, element)}
                             href={link.href}
                             text={link.text}
                             delay={link.delay}
