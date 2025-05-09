@@ -28,7 +28,7 @@ const BtnGoHome = () => {
                 aria-hidden="true"
             >
                 {loading ? (
-                    <LoadingSpinner />
+                    <LoadingSpinner color="light" />
                 ) : (
                     <IoIosArrowBack className="text-2xl text-light" />
                 )}

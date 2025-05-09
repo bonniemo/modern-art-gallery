@@ -29,7 +29,7 @@ export default function ButtonBackToCalendar() {
         >
             <div className="bg-accent h-full flex items-center px-2 group-hover:bg-dark">
                 {loading ? (
-                    <LoadingSpinner />
+                    <LoadingSpinner color="light" />
                 ) : (
                     <IoIosArrowBack className="text-2xl text-light" />
                 )}
