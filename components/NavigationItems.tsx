@@ -5,12 +5,12 @@ import LoadingSpinner from "./LoadingSpinner";
 export const navLinks = [
     { href: "/", text: "Home", delay: "delay-[400ms]" },
     { href: "/location", text: "Location", delay: "delay-[500ms]" },
-    { href: "/event-calendar", text: "Event Calendar", delay: "delay-[600ms]" },
     {
         href: "/the-gallery-cafe",
         text: "The Gallery Café",
         delay: "delay-[700ms]",
     },
+    { href: "/event-calendar", text: "Event Calendar", delay: "delay-[600ms]" },
 ];
 
 type MenuItemProps = {
