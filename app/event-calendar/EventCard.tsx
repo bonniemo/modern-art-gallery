@@ -3,10 +3,10 @@ import { slugify } from "@/utils/slugify";
 import { getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 import Link from "next/link";
-import { Event } from "../../types/types";
+import { EventInterface } from "../../types/types";
 
 type EventCardProp = {
-    event: Event;
+    event: EventInterface;
 };
 
 const EventCard = ({ event }: EventCardProp) => {
