@@ -1,10 +1,8 @@
-import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 
 const ButtonTicket = () => {
     return (
-        <Link
-            href="#"
+        <section
             className="flex items-center w-max h-16 drop-shadow-lg group"
             aria-label="Get tickets for this event"
         >
@@ -16,7 +14,7 @@ const ButtonTicket = () => {
             <div className="bg-accent h-full flex items-center px-2 group-hover:bg-dark">
                 <IoIosArrowForward className="text-2xl text-light" />
             </div>
-        </Link>
+        </section>
     );
 };
 

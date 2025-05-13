@@ -26,7 +26,7 @@ const Menu = () => {
             setNavigatingTo(null);
             setOpen(false);
         }
-    }, [pathname]);
+    }, [pathname, navigatingTo]);
 
     const handleNavigation = (
         e: React.MouseEvent<HTMLAnchorElement>,
