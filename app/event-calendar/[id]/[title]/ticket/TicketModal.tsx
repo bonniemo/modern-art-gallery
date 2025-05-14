@@ -8,8 +8,10 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { useTicketStore } from "@/stores/useTicketStore";
 import { useState } from "react";
 import ButtonTicket from "./ButtonTicket";
+import TicketConformation from "./TicketConformation";
 import TicketForm from "./TicketForm";
 
 type EventProps = {
@@ -19,9 +21,18 @@ type EventProps = {
 
 const TicketModal = ({ eventId, eventTitle }: EventProps) => {
     const [isOpen, setIsOpen] = useState(false);
+    const { ticket, resetTicket } = useTicketStore();
+    const ticketId = ticket.ticketId;
+
+    const handleOpenChange = (open: boolean) => {
+        setIsOpen(open);
+        if (!open) {
+            resetTicket();
+        }
+    };
 
     return (
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <Dialog open={isOpen} onOpenChange={handleOpenChange}>
             <DialogTrigger>
                 <ButtonTicket />
             </DialogTrigger>
@@ -35,7 +46,11 @@ const TicketModal = ({ eventId, eventTitle }: EventProps) => {
                 </DialogHeader>
 
                 {/* Only render the form when the dialog is open */}
-                {isOpen && <TicketForm eventId={eventId} />}
+                {isOpen && ticketId === null ? (
+                    <TicketForm eventId={eventId} />
+                ) : (
+                    <TicketConformation />
+                )}
             </DialogContent>
         </Dialog>
     );

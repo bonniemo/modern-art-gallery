@@ -12,6 +12,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useTicketStore } from "@/stores/useTicketStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -25,6 +26,7 @@ type TicketFormProps = {
 
 const TicketForm = ({ eventId }: TicketFormProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const { setTicket } = useTicketStore();
 
     const form = useForm<z.infer<typeof ticketSchema>>({
         resolver: zodResolver(ticketSchema),
@@ -41,7 +43,15 @@ const TicketForm = ({ eventId }: TicketFormProps) => {
             const result = await createTicket(values);
 
             if (result.success) {
+                setTicket({
+                    ticketId: result.ticketId,
+                    ...values,
+                    eventTitle: "temp",
+                    eventId: eventId,
+                });
+
                 console.log("succes ticket bought");
+                console.log();
                 form.reset();
             } else {
                 console.log("error");
