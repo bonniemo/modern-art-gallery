@@ -128,7 +128,10 @@ export default async function EventPage(props: {
                         {event.description}
                     </p>
                     <div className="mt-8">
-                        <TicketModal event={event.title} />
+                        <TicketModal
+                            eventId={event.id}
+                            eventTitle={event.title}
+                        />
                     </div>
                 </section>
             </main>

@@ -1,5 +1,6 @@
 "use client";
 
+import { createTicket } from "@/actions/ticketActions";
 import { Button } from "@/components/ui/button";
 import {
     Form,
@@ -12,45 +13,56 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-const formSchema = z.object({
-    name: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-    }),
-    email: z.string().email({
-        message: "Please enter a valid email address.",
-    }),
-});
+import { ticketSchema } from "./ticketSchema";
 
 type TicketFormProps = {
     onSuccess?: () => void;
+    eventId: string;
 };
 
-const TicketForm = ({ onSuccess }: TicketFormProps) => {
-    // Define your form
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+const TicketForm = ({ eventId }: TicketFormProps) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const form = useForm<z.infer<typeof ticketSchema>>({
+        resolver: zodResolver(ticketSchema),
         defaultValues: {
+            eventId: eventId,
             name: "",
             email: "",
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        // You'll connect this to your server action later
-        console.log(values);
+    async function onSubmit(values: z.infer<typeof ticketSchema>) {
+        try {
+            setIsSubmitting(true);
+            const result = await createTicket(values);
 
-        // Call the onSuccess callback if provided
-        if (onSuccess) {
-            onSuccess();
+            if (result.success) {
+                console.log("succes ticket bought");
+                form.reset();
+            } else {
+                console.log("error");
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        } finally {
+            setIsSubmitting(false);
         }
     }
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    form.handleSubmit(onSubmit)(e);
+                }}
+                className="space-y-8"
+            >
+                <input type="hidden" {...form.register("eventId")} />
                 <FormField
                     control={form.control}
                     name="name"
@@ -87,7 +99,9 @@ const TicketForm = ({ onSuccess }: TicketFormProps) => {
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Buy Ticket</Button>
+                <Button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? "Processing..." : "Buy Ticket"}
+                </Button>
             </form>
         </Form>
     );

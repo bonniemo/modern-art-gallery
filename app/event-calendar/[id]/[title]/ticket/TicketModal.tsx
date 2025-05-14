@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
     Dialog,
     DialogContent,
@@ -9,14 +8,16 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { useState } from "react";
 import ButtonTicket from "./ButtonTicket";
 import TicketForm from "./TicketForm";
 
 type EventProps = {
-    event: string;
+    eventId: string;
+    eventTitle: string;
 };
 
-const TicketModal = ({ event }: EventProps) => {
+const TicketModal = ({ eventId, eventTitle }: EventProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -26,7 +27,7 @@ const TicketModal = ({ event }: EventProps) => {
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Buy ticket for {event}</DialogTitle>
+                    <DialogTitle>Buy ticket for {eventTitle}</DialogTitle>
                     <DialogDescription>
                         <span className="block">Date: </span>
                         <span className="mt-4 block"></span>
@@ -34,7 +35,7 @@ const TicketModal = ({ event }: EventProps) => {
                 </DialogHeader>
 
                 {/* Only render the form when the dialog is open */}
-                {isOpen && <TicketForm onSuccess={() => setIsOpen(false)} />}
+                {isOpen && <TicketForm eventId={eventId} />}
             </DialogContent>
         </Dialog>
     );
