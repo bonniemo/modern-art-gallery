@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -30,6 +29,10 @@ const TicketForm = () => {
             eventId: ticketDetails.eventId,
             name: "",
             email: "",
+            street: "",
+            city: "",
+            postalCode: "",
+            country: "",
         },
     });
 
@@ -76,9 +79,6 @@ const TicketForm = () => {
                             <FormControl>
                                 <Input placeholder="Your name" {...field} />
                             </FormControl>
-                            <FormDescription>
-                                Enter your full name.
-                            </FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
@@ -96,15 +96,67 @@ const TicketForm = () => {
                                     {...field}
                                 />
                             </FormControl>
-                            <FormDescription>
-                                We'll never share your email.
-                            </FormDescription>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="street"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Street Address</FormLabel>
+                            <FormControl>
+                                <Input placeholder="123 Main St" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="postalCode"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Postal Code</FormLabel>
+                            <FormControl>
+                                <Input placeholder="12345" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="city"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>City</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Stockholm" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="country"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Country</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Sweden" {...field} />
+                            </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
                 <Button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? "Processing..." : "Buy Ticket"}
+                    {isSubmitting ? "Processing..." : "Get Ticket"}
                 </Button>
             </form>
         </Form>
