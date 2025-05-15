@@ -1,7 +1,6 @@
 "use client";
 
 import { createTicket } from "@/actions/ticketActions";
-import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
@@ -15,6 +14,7 @@ import { useTicketStore } from "@/stores/useTicketStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { IoIosArrowForward } from "react-icons/io";
 import { z } from "zod";
 import { ticketSchema } from "./ticketSchema";
 
@@ -155,9 +155,22 @@ const TicketForm = () => {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? "Processing..." : "Get Ticket"}
-                </Button>
+
+                <button
+                    className="flex items-center w-max h-16 drop-shadow-lg group"
+                    aria-label="Get tickets for this event"
+                    type="submit"
+                    disabled={isSubmitting}
+                >
+                    <div className="bg-dark px-4 h-full flex justify-center items-center group-hover:bg-accent">
+                        <p className="uppercase text-light text-p-s leading-body-s font-extrabold">
+                            {isSubmitting ? "Processing..." : "Get Tickets"}
+                        </p>
+                    </div>
+                    <div className="bg-accent h-full flex items-center px-2 group-hover:bg-dark">
+                        <IoIosArrowForward className="text-2xl text-light" />
+                    </div>
+                </button>
             </form>
         </Form>
     );

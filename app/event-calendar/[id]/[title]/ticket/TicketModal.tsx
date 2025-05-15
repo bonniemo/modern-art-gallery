@@ -51,13 +51,17 @@ const TicketModal = ({ eventId, eventTitle, eventDate }: EventProps) => {
                     <DialogTitle>
                         {ticketId === null ? (
                             <>
-                                <span>Get ticket for {eventTitle}</span>
+                                <span className="block mt-6 text-header-xs">
+                                    Tickets for {eventTitle}
+                                </span>
                                 <span className="block mt-1 text-gray text-sm font-outfit font-medium">
                                     Date: {eventDate}
                                 </span>
                             </>
                         ) : (
-                            <span>Thank You for Your Purchase!</span>
+                            <span className="block mt-6 text-header-xs">
+                                Thank You for Your Purchase!
+                            </span>
                         )}
                     </DialogTitle>
                     <DialogDescription>
