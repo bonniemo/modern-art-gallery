@@ -6,37 +6,40 @@ type TicketDetails = {
     email: string;
     eventId: string;
     eventTitle: string;
+    eventDate: string;
 };
 
 type TicketStore = {
-    ticket: TicketDetails;
-    setTicket: (data: Partial<TicketDetails>) => void;
-    resetTicket: () => void;
+    ticketDetails: TicketDetails;
+    setTicketDetails: (data: Partial<TicketDetails>) => void;
+    resetTicketDetails: () => void;
 };
 
 export const useTicketStore = create<TicketStore>((set) => ({
-    ticket: {
+    ticketDetails: {
         ticketId: null,
         name: "",
         email: "",
         eventId: "",
         eventTitle: "",
+        eventDate: "",
     },
-    setTicket: (data) =>
+    setTicketDetails: (data) =>
         set((state) => ({
-            ticket: {
-                ...state.ticket,
+            ticketDetails: {
+                ...state.ticketDetails,
                 ...data,
             },
         })),
-    resetTicket: () =>
+    resetTicketDetails: () =>
         set(() => ({
-            ticket: {
+            ticketDetails: {
                 ticketId: null,
                 name: "",
                 email: "",
                 eventId: "",
                 eventTitle: "",
+                eventDate: "",
             },
         })),
 }));

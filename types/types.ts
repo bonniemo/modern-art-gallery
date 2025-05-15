@@ -7,7 +7,7 @@ export interface EventInterface {
     img: string;
 }
 
-export interface FormattedEvent extends Event {
+export interface FormattedEvent extends EventInterface {
     formattedDay: string;
     formattedTime: string;
 }

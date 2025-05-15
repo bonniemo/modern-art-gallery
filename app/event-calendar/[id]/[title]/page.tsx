@@ -131,6 +131,7 @@ export default async function EventPage(props: {
                         <TicketModal
                             eventId={event.id}
                             eventTitle={event.title}
+                            eventDate={formattedDate}
                         />
                     </div>
                 </section>

@@ -17,17 +17,27 @@ import TicketForm from "./TicketForm";
 type EventProps = {
     eventId: string;
     eventTitle: string;
+    eventDate: string;
 };
 
-const TicketModal = ({ eventId, eventTitle }: EventProps) => {
+const TicketModal = ({ eventId, eventTitle, eventDate }: EventProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    const { ticket, resetTicket } = useTicketStore();
-    const ticketId = ticket.ticketId;
+    const ticketId = useTicketStore((state) => state.ticketDetails.ticketId);
+    const resetTicketDetails = useTicketStore(
+        (state) => state.resetTicketDetails
+    );
+    const setTicketDetails = useTicketStore((state) => state.setTicketDetails);
+    const ticketDetails = useTicketStore((state) => state.ticketDetails);
 
     const handleOpenChange = (open: boolean) => {
         setIsOpen(open);
+        setTicketDetails({
+            eventId: eventId,
+            eventTitle: eventTitle,
+            eventDate: eventDate,
+        });
         if (!open) {
-            resetTicket();
+            resetTicketDetails();
         }
     };
 
@@ -38,19 +48,36 @@ const TicketModal = ({ eventId, eventTitle }: EventProps) => {
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Buy ticket for {eventTitle}</DialogTitle>
+                    <DialogTitle>
+                        {ticketId === null ? (
+                            <>
+                                <span>Buy ticket for {eventTitle}</span>
+                                <span className="block mt-1 text-gray text-sm font-outfit font-medium">
+                                    Date: {eventDate}
+                                </span>
+                            </>
+                        ) : (
+                            <span>Thank You for Your Purchase!</span>
+                        )}
+                    </DialogTitle>
                     <DialogDescription>
-                        <span className="block">Date: </span>
-                        <span className="mt-4 block"></span>
+                        {ticketId === null ? (
+                            <span>
+                                Fill out the form below to reserve your ticket
+                                for this event. Payment instructions will be
+                                included in your confirmation email.
+                            </span>
+                        ) : (
+                            <span>
+                                Your ticket has been successfully reserved. A
+                                confirmation email with payment details has been
+                                sent to {ticketDetails.email}.
+                            </span>
+                        )}
                     </DialogDescription>
                 </DialogHeader>
 
-                {/* Only render the form when the dialog is open */}
-                {isOpen && ticketId === null ? (
-                    <TicketForm eventId={eventId} />
-                ) : (
-                    <TicketConformation />
-                )}
+                {ticketId === null ? <TicketForm /> : <TicketConformation />}
             </DialogContent>
         </Dialog>
     );
