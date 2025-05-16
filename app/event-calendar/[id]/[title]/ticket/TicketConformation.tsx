@@ -1,15 +1,21 @@
 "use client";
-import { useTicketStore } from "@/stores/useTicketStore";
+import TicketDesign from "./TicketDesign";
 
 const TicketConformation = () => {
-    const ticketDetails = useTicketStore((state) => state.ticketDetails);
     return (
         <section>
-            <p>
+            <TicketDesign />
+            <p className="mt-8">
                 Please bring either a printed copy or show the digital version
-                on your phone when you arrive at The Gallery Café. If you have
-                any questions or need to make changes to your booking, please
-                contact us at events@thegallerycafe.com. See you soon!
+                on your phone when you arrive.
+            </p>
+            <p>
+                If you have any questions or need to make changes to your
+                booking, please contact us at{" "}
+                <a href="mailto:events@thegallerycafe.com">
+                    events@thegallerycafe.com
+                </a>
+                <span className="block">See you soon!</span>
             </p>
         </section>
     );
