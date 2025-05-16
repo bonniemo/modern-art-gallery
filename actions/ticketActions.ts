@@ -1,5 +1,6 @@
 "use server";
 import { adminDb } from "@/firebase/admin-config";
+import { sendTicketEmail } from "@/services/emailService";
 import { z } from "zod";
 import { ticketSchema } from "../app/event-calendar/[id]/[title]/ticket/ticketSchema";
 
@@ -20,6 +21,24 @@ export async function createTicket(data: TicketFormData) {
         console.log("Attempting to save ticket to database:", ticket);
         const docRef = await adminDb.collection("tickets").add(ticket);
         console.log("Ticket saved with ID:", docRef.id);
+
+        const emailResult = await sendTicketEmail({
+            userEmail: validatedData.email,
+            eventTitle: "title",
+            eventDate: "date",
+            ticketId: "id",
+            // eventTitle: validatedData.eventTitle,
+            // eventDate: validatedData.eventDate,
+            // ticketId: ticketId,
+        });
+
+        if (!emailResult.success) {
+            // Log error but continue - ticket was still created successfully
+            console.warn(
+                "Ticket created but email failed to send:",
+                emailResult.error
+            );
+        }
 
         return {
             success: true,
