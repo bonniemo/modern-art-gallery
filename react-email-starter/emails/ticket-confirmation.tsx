@@ -52,8 +52,8 @@ export const TicketConfirmationEmail = ({
                             <strong>3 days</strong> to remain valid. You can pay
                             by card at the Gallery Café or via Swish to{" "}
                             <strong>111 111 1111</strong>. Please include the
-                            email you used when purchasing the ticket in the
-                            message.
+                            email adress you used when purchasing the ticket in
+                            the message.
                         </Text>
 
                         <Text>
@@ -72,7 +72,10 @@ export const TicketConfirmationEmail = ({
                             The Gallery Café Team
                         </Text>
 
-                        <Section className="border border-gray-300 mt-8">
+                        <Section
+                            className="border border-gray-300 mt-8"
+                            style={{ border: "1px solid #D1D5DB" }}
+                        >
                             <Row className="bg-black text-white px-4 py-8">
                                 <Column className="w-1/2">
                                     <Heading className="text-xl uppercase">

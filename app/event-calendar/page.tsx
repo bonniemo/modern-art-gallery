@@ -17,7 +17,7 @@ export const metadata = {
         locale: "en_US",
         images: [
             {
-                url: "/open-stage.jpg", // Update the image path accordingly
+                url: "/event-calendar/open-stage-desktop.png",
                 width: 1200,
                 height: 630,
                 alt: "Singer performing at Modern Art Gallery open stage event",
@@ -31,7 +31,7 @@ export const metadata = {
             "Mockup page – Not a real site, for developer portfolio only. Discover upcoming exhibitions, workshops, and cultural events at Modern Art Gallery",
         images: [
             {
-                url: "/open-stage.jpg", // Update the image path accordingly
+                url: "/event-calendar/open-stage-desktop.png",
                 width: 1200,
                 height: 630,
                 alt: "Singer performing at Modern Art Gallery open stage event",

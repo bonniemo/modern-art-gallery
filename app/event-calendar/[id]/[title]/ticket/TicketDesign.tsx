@@ -1,7 +1,7 @@
 "use client";
+import qrPlaceholder from "@/public/event-calendar/qr-placeholder.png";
 import { useTicketStore } from "@/stores/useTicketStore";
 import Image from "next/image";
-import qrPlaceholder from "../../../../../public/event-calendar/qr-placeholder.png";
 
 const TicketDesign = () => {
     const ticketDetails = useTicketStore((state) => state.ticketDetails);
@@ -25,9 +25,6 @@ const TicketDesign = () => {
                         <span className="font-bold">Ticket Id: </span>
                         {ticketDetails.ticketId}
                     </li>
-                    <li>
-                        <span className="font-bold"></span>
-                    </li>
                 </ul>
                 <Image
                     src={qrPlaceholder}
@@ -36,7 +33,6 @@ const TicketDesign = () => {
                     height={64}
                 />
             </section>
-            {/* dotted line  */}
             <address className="mt-8 text-sm px-2 pb-2">
                 99 King Street, Newport, USA
             </address>
