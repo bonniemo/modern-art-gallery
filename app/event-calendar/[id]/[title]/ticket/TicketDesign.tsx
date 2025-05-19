@@ -6,7 +6,7 @@ import qrPlaceholder from "../../../../../public/event-calendar/qr-placeholder.p
 const TicketDesign = () => {
     const ticketDetails = useTicketStore((state) => state.ticketDetails);
     return (
-        <section className="uppercase border border-gray-300 mt-8">
+        <section className="uppercase border border-black mt-8">
             <header className="bg-dark text-light px-4 py-8 flex justify-between items-center">
                 <h2 className="text-header-xs">The gallery café</h2>
                 <h4>Event ticket</h4>

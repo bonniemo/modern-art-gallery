@@ -1,15 +1,17 @@
 import { z } from "zod";
 
 export const ticketSchema = z.object({
+    eventId: z.string(),
+    eventTitle: z.string(),
+    eventDate: z.string(),
     name: z.string().min(2, {
         message: "Name must be at least 2 characters.",
     }),
     email: z.string().email({
         message: "Please enter a valid email address.",
     }),
-    eventId: z.string(),
-    street: z.string().min(5, {
-        message: "Street address must be at least 5 characters.",
+    street: z.string().min(2, {
+        message: "Street address must be at least 2 characters.",
     }),
     city: z.string().min(2, {
         message: "City must be at least 2 characters.",

@@ -16,6 +16,8 @@ const TicketConformation = () => {
                     events@thegallerycafe.com
                 </a>
                 <span className="block">See you soon!</span>
+                <span className="block mt-4">Warm regards,</span>
+                <span className="block">The Gallery Café Team</span>
             </p>
         </section>
     );

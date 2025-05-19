@@ -15,7 +15,6 @@ export async function createTicket(data: TicketFormData) {
         const ticket = {
             ...validatedData,
             purchaseDate: new Date(),
-            // add more fields here like ticket number, status, etc.
         };
 
         console.log("Attempting to save ticket to database:", ticket);
@@ -24,16 +23,12 @@ export async function createTicket(data: TicketFormData) {
 
         const emailResult = await sendTicketEmail({
             userEmail: validatedData.email,
-            eventTitle: "title",
-            eventDate: "date",
-            ticketId: "id",
-            // eventTitle: validatedData.eventTitle,
-            // eventDate: validatedData.eventDate,
-            // ticketId: ticketId,
+            eventTitle: validatedData.eventTitle,
+            eventDate: validatedData.eventDate,
+            ticketId: docRef.id,
         });
 
         if (!emailResult.success) {
-            // Log error but continue - ticket was still created successfully
             console.warn(
                 "Ticket created but email failed to send:",
                 emailResult.error

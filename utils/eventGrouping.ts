@@ -1,7 +1,7 @@
-import { Event, MonthGroup } from "@/types/types";
+import { EventInterface, MonthGroup } from "@/types/types";
 
 export const groupEventsByMonth = (
-    events: Event[]
+    events: EventInterface[]
 ): Record<string, MonthGroup> => {
     return events.reduce<Record<string, MonthGroup>>((grouped, event) => {
         const eventDate = new Date(event.date.seconds * 1000);

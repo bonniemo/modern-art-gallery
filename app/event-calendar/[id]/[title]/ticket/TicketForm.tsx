@@ -27,6 +27,8 @@ const TicketForm = () => {
         resolver: zodResolver(ticketSchema),
         defaultValues: {
             eventId: ticketDetails.eventId,
+            eventTitle: ticketDetails.eventTitle,
+            eventDate: ticketDetails.eventDate,
             name: "",
             email: "",
             street: "",
@@ -69,6 +71,9 @@ const TicketForm = () => {
                 className="space-y-8"
             >
                 <input type="hidden" {...form.register("eventId")} />
+                <input type="hidden" {...form.register("eventTitle")} />
+                <input type="hidden" {...form.register("eventDate")} />
+
                 <FormField
                     control={form.control}
                     name="name"
@@ -134,7 +139,7 @@ const TicketForm = () => {
                         <FormItem>
                             <FormLabel>City</FormLabel>
                             <FormControl>
-                                <Input placeholder="Stockholm" {...field} />
+                                <Input placeholder="Newport" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -148,7 +153,7 @@ const TicketForm = () => {
                         <FormItem>
                             <FormLabel>Country</FormLabel>
                             <FormControl>
-                                <Input placeholder="Sweden" {...field} />
+                                <Input placeholder="USA" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
