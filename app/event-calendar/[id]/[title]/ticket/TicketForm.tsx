@@ -48,7 +48,6 @@ const TicketForm = () => {
                 });
 
                 console.log("succes ticket bought");
-                console.log();
                 form.reset();
             } else {
                 console.log("error");
