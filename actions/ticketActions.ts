@@ -7,8 +7,6 @@ import { ticketSchema } from "../app/event-calendar/[id]/[title]/ticket/ticketSc
 export type TicketFormData = z.infer<typeof ticketSchema>;
 
 export async function createTicket(data: TicketFormData) {
-    console.log("Server received ticket data:", data);
-
     try {
         const validatedData = ticketSchema.parse(data);
 
@@ -17,9 +15,7 @@ export async function createTicket(data: TicketFormData) {
             purchaseDate: new Date(),
         };
 
-        console.log("Attempting to save ticket to database:", ticket);
         const docRef = await adminDb.collection("tickets").add(ticket);
-        console.log("Ticket saved with ID:", docRef.id);
 
         const emailResult = await sendTicketEmail({
             userEmail: validatedData.email,
@@ -28,20 +24,12 @@ export async function createTicket(data: TicketFormData) {
             ticketId: docRef.id,
         });
 
-        if (!emailResult.success) {
-            console.warn(
-                "Ticket created but email failed to send:",
-                emailResult.error
-            );
-        }
-
         return {
             success: true,
             ticketId: docRef.id,
+            emailSent: emailResult.success,
         };
     } catch (error) {
-        console.error("Failed to create ticket:", error);
-
         if (error instanceof z.ZodError) {
             return {
                 success: false,

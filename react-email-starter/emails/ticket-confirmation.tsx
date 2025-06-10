@@ -42,39 +42,9 @@ export const TicketConfirmationEmail = ({
                             below.
                         </Text>
 
-                        <Text>
-                            Please bring either a printed copy or show the
-                            digital version on your phone when you arrive.
-                        </Text>
-
-                        <Text>
-                            Your ticket must be paid within{" "}
-                            <strong>3 days</strong> to remain valid. You can pay
-                            by card at the Gallery Café or via Swish to{" "}
-                            <strong>111 111 1111</strong>. Please include the
-                            email adress you used when purchasing the ticket in
-                            the message.
-                        </Text>
-
-                        <Text>
-                            If you have any questions or need to make changes to
-                            your booking, feel free to contact us at{" "}
-                            <a href="mailto:events@thegallerycafe.com">
-                                events@thegallerycafe.com
-                            </a>
-                            .
-                        </Text>
-
-                        <Text>See you soon!</Text>
-
-                        <Text>
-                            Warm regards, <br />
-                            The Gallery Café Team
-                        </Text>
-
                         <Section
                             className="border border-gray-300 mt-8"
-                            style={{ border: "1px solid #D1D5DB" }}
+                            style={{ border: "1px solid black" }}
                         >
                             <Row className="bg-black text-white px-4 py-8">
                                 <Column className="w-1/2">
@@ -91,7 +61,7 @@ export const TicketConfirmationEmail = ({
 
                             <Row className="p-4 mt-8">
                                 <Column className="w-2/3">
-                                    <div className="space-y-2 p-4">
+                                    <div className="space-y-1 p-4 text-base">
                                         <Text>
                                             <strong>Event name: </strong>
                                             {eventTitle}
@@ -122,6 +92,36 @@ export const TicketConfirmationEmail = ({
                                 99 King Street, Newport, USA
                             </Text>
                         </Section>
+
+                        <Text>
+                            Please bring either a printed copy or show the
+                            digital version on your phone when you arrive.
+                        </Text>
+
+                        <Text>
+                            Your ticket must be paid within{" "}
+                            <strong>3 days</strong> to remain valid. You can pay
+                            by card at the Gallery Café or via Swish to{" "}
+                            <strong>111 111 1111</strong>. Please include the
+                            email adress you used when purchasing the ticket in
+                            the message.
+                        </Text>
+
+                        <Text>
+                            If you have any questions or need to make changes to
+                            your booking, feel free to contact us at{" "}
+                            <a href="mailto:events@thegallerycafe.com">
+                                events@thegallerycafe.com
+                            </a>
+                            .
+                        </Text>
+
+                        <Text>See you soon!</Text>
+
+                        <Text>
+                            Warm regards, <br />
+                            The Gallery Café Team
+                        </Text>
                     </Container>
                 </Body>
             </Tailwind>
