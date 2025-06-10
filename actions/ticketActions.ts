@@ -28,7 +28,7 @@ export async function createTicket(data: TicketFormData) {
             success: true,
             ticketId: docRef.id,
             emailSent: emailResult.success,
-            timestamp: new Date().toISOString(),
+            timestamp: ticket.purchaseDate,
         };
     } catch (error) {
         if (error instanceof z.ZodError) {
