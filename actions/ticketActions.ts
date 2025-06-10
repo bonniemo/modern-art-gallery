@@ -12,7 +12,7 @@ export async function createTicket(data: TicketFormData) {
 
         const ticket = {
             ...validatedData,
-            purchaseDate: new Date(),
+            purchaseDate: new Date().toISOString(),
         };
 
         const docRef = await adminDb.collection("tickets").add(ticket);
@@ -28,12 +28,16 @@ export async function createTicket(data: TicketFormData) {
             success: true,
             ticketId: docRef.id,
             emailSent: emailResult.success,
+            timestamp: new Date().toISOString(),
         };
     } catch (error) {
         if (error instanceof z.ZodError) {
             return {
                 success: false,
-                errors: error.errors,
+                errors: error.errors.map((e) => ({
+                    path: e.path.join("."),
+                    message: e.message,
+                })),
             };
         }
 
