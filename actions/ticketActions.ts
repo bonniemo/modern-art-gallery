@@ -9,11 +9,10 @@ export type TicketFormData = z.infer<typeof ticketSchema>;
 export async function createTicket(data: TicketFormData) {
     try {
         const validatedData = ticketSchema.parse(data);
-        const currentDate = new Date().toISOString();
 
         const ticket = {
             ...validatedData,
-            purchaseDate: currentDate,
+            purchaseDate: new Date(),
         };
 
         const docRef = await adminDb.collection("tickets").add(ticket);
@@ -29,16 +28,12 @@ export async function createTicket(data: TicketFormData) {
             success: true,
             ticketId: docRef.id,
             emailSent: emailResult.success,
-            timestamp: currentDate,
         };
     } catch (error) {
         if (error instanceof z.ZodError) {
             return {
                 success: false,
-                errors: error.errors.map((e) => ({
-                    path: e.path.join("."),
-                    message: e.message,
-                })),
+                errors: error.errors,
             };
         }
 
