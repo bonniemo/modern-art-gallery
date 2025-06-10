@@ -21,13 +21,6 @@ const Menu = () => {
         menuItemRefs,
     });
 
-    useEffect(() => {
-        if (navigatingTo) {
-            setNavigatingTo(null);
-            setOpen(false);
-        }
-    }, [pathname, navigatingTo]);
-
     const handleNavigation = (
         e: React.MouseEvent<HTMLAnchorElement>,
         href: string
@@ -40,10 +33,15 @@ const Menu = () => {
         }
 
         setNavigatingTo(href);
-        setTimeout(() => {
-            router.push(href);
-        }, 300);
+        router.push(href);
     };
+
+    useEffect(() => {
+        if (navigatingTo && pathname === navigatingTo) {
+            setOpen(false);
+            setNavigatingTo(null);
+        }
+    }, [pathname, navigatingTo]);
 
     const toggleMenu = () => setOpen((menuState) => !menuState);
 
