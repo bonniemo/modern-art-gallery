@@ -1,8 +1,7 @@
 import { getEvents } from "@/actions/actions";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
-import { Event } from "@/types/types";
-
+import { EventInterface } from "@/types/types";
 import { groupEventsByMonth } from "@/utils/eventGrouping";
 import EventCard from "./EventCard";
 
@@ -18,7 +17,7 @@ export const metadata = {
         locale: "en_US",
         images: [
             {
-                url: "/open-stage.jpg", // Update the image path accordingly
+                url: "/event-calendar/open-stage-desktop.png",
                 width: 1200,
                 height: 630,
                 alt: "Singer performing at Modern Art Gallery open stage event",
@@ -32,7 +31,7 @@ export const metadata = {
             "Mockup page – Not a real site, for developer portfolio only. Discover upcoming exhibitions, workshops, and cultural events at Modern Art Gallery",
         images: [
             {
-                url: "/open-stage.jpg", // Update the image path accordingly
+                url: "/event-calendar/open-stage-desktop.png",
                 width: 1200,
                 height: 630,
                 alt: "Singer performing at Modern Art Gallery open stage event",
@@ -54,7 +53,7 @@ export const metadata = {
 };
 
 export default async function EventCalendar() {
-    const events = (await getEvents()) as Event[];
+    const events = (await getEvents()) as EventInterface[];
     const groupedByMonth = groupEventsByMonth(events);
 
     return (

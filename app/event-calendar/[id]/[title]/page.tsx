@@ -6,7 +6,7 @@ import { getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonBackToCalendar from "../../ButtonBackToCalendar";
-import ButtonTicket from "../../ButtonTicket";
+import TicketModal from "./ticket/TicketModal";
 
 type Props = {
     params: Promise<{ id: string; title: string }>;
@@ -128,7 +128,11 @@ export default async function EventPage(props: {
                         {event.description}
                     </p>
                     <div className="mt-8">
-                        <ButtonTicket />
+                        <TicketModal
+                            eventId={event.id}
+                            eventTitle={event.title}
+                            eventDate={formattedDate}
+                        />
                     </div>
                 </section>
             </main>

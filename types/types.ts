@@ -1,4 +1,4 @@
-export interface Event {
+export interface EventInterface {
     id: string;
     date: { seconds: number };
     title: string;
@@ -7,7 +7,7 @@ export interface Event {
     img: string;
 }
 
-export interface FormattedEvent extends Event {
+export interface FormattedEvent extends EventInterface {
     formattedDay: string;
     formattedTime: string;
 }

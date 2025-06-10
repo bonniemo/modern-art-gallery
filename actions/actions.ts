@@ -1,7 +1,6 @@
 "use server";
-
 import { adminDb } from "@/firebase/admin-config";
-import { Event } from "@/types/types";
+import { EventInterface } from "@/types/types";
 
 export async function getEvents() {
     try {
@@ -20,7 +19,7 @@ export async function getEvents() {
     }
 }
 
-export async function getEventById(id: string): Promise<Event | null> {
+export async function getEventById(id: string): Promise<EventInterface | null> {
     try {
         const eventRef = adminDb.collection("event-calendar").doc(id);
         const eventSnap = await eventRef.get();
@@ -33,7 +32,7 @@ export async function getEventById(id: string): Promise<Event | null> {
         return {
             id: eventSnap.id,
             ...eventData,
-        } as Event;
+        } as EventInterface;
     } catch (error) {
         console.error("Error fetching event:", error);
         throw error;
