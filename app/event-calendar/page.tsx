@@ -1,6 +1,6 @@
-import { getEvents } from "@/actions/actions";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
+import { getEvents } from "@/actions/eventActions";
 import { EventInterface } from "@/types/types";
 import { groupEventsByMonth } from "@/utils/eventGrouping";
 import EventCard from "./EventCard";

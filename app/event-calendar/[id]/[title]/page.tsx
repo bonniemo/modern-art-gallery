@@ -1,5 +1,5 @@
-import { getEventById } from "@/actions/actions";
 import Footer from "@/components/Footer";
+import { getEventById } from "@/actions/eventActions";
 import { formatEventDate } from "@/utils/dateFormatting";
 import { Metadata } from "next";
 import { getCldImageUrl } from "next-cloudinary";
