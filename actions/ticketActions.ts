@@ -1,6 +1,5 @@
 "use server";
-import { adminDb } from "@/firebase/admin-config";
-import { sendTicketEmail } from "@/services/emailService";
+
 import { z } from "zod";
 import { ticketSchema } from "../app/event-calendar/[id]/[title]/ticket/ticketSchema";
 
@@ -8,38 +7,32 @@ export type TicketFormData = z.infer<typeof ticketSchema>;
 
 export async function createTicket(data: TicketFormData) {
     try {
-        const validatedData = ticketSchema.parse(data);
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/tickets`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            }
+        );
 
-        const ticket = {
-            ...validatedData,
-            purchaseDate: new Date(),
-        };
-
-        const docRef = await adminDb.collection("tickets").add(ticket);
-
-        const emailResult = await sendTicketEmail({
-            userEmail: validatedData.email,
-            eventTitle: validatedData.eventTitle,
-            eventDate: validatedData.eventDate,
-            ticketId: docRef.id,
-        });
-
-        return {
-            success: true,
-            ticketId: docRef.id,
-            emailSent: emailResult.success,
-        };
-    } catch (error) {
-        if (error instanceof z.ZodError) {
+        if (!response.ok) {
+            const errorData = await response.json();
             return {
                 success: false,
-                errors: error.errors,
+                message: errorData.message || "Failed to create ticket",
+                errors: errorData.errors,
             };
         }
 
+        return response.json();
+    } catch (error) {
+        console.error("Ticket creation error:", error);
         return {
             success: false,
-            message: "Failed to create ticket. Please try again.",
+            message: "An unexpected error occurred",
         };
     }
 }
