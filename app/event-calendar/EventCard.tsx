@@ -34,7 +34,7 @@ const EventCard = ({ event }: EventCardProp) => {
                         {event.title}
                     </h5>
                     <p className="text-p-s text-gray font-light">
-                        {formatEventDate(event.date.seconds)}
+                        {formatEventDate(event.date)}
                     </p>
                     <p className="text-p-s leading-body-s my-6 overflow-hidden text-ellipsis line-clamp-3">
                         {event.description}

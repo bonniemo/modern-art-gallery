@@ -4,8 +4,7 @@ export const groupEventsByMonth = (
     events: EventInterface[]
 ): Record<string, MonthGroup> => {
     return events.reduce<Record<string, MonthGroup>>((grouped, event) => {
-        const eventDate = new Date(event.date.seconds * 1000);
-
+        const eventDate = new Date(event.date);
         const monthName = eventDate.toLocaleString("default", {
             month: "long",
         });

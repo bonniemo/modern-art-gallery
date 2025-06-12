@@ -1,4 +1,4 @@
-import { getEvents } from "@/actions/actions";
+import { getEvents } from "@/actions/eventActions";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import { EventInterface } from "@/types/types";

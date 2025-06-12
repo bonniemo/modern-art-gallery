@@ -1,4 +1,4 @@
-import { getEventById } from "@/actions/actions";
+import { getEventById } from "@/actions/eventActions";
 import Footer from "@/components/Footer";
 import { formatEventDate } from "@/utils/dateFormatting";
 import { Metadata } from "next";
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
-    const formattedDate = formatEventDate(event.date.seconds);
+    const formattedDate = formatEventDate(event.date);
     const imageUrl = getCldImageUrl({ src: event.img });
 
     return {
@@ -73,7 +73,7 @@ export default async function EventPage(props: {
         );
     }
 
-    const formattedDate = formatEventDate(event.date.seconds);
+    const formattedDate = formatEventDate(event.date);
 
     return (
         <>
@@ -110,9 +110,7 @@ export default async function EventPage(props: {
                             </h2>
                             <time
                                 id="event-date"
-                                dateTime={new Date(
-                                    event.date.seconds * 1000
-                                ).toISOString()}
+                                dateTime={new Date(event.date).toISOString()}
                                 className="max-w-max text-p-tiny md:text-p-m font-light"
                             >
                                 {formattedDate}

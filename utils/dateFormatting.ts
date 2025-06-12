@@ -1,15 +1,12 @@
-export function formatEventDate(seconds: number): string {
-    const date = new Date(seconds * 1000);
-
-    const day = date.getDate();
-    const month = date.toLocaleString("default", { month: "long" });
-    const time = date.toLocaleString("default", {
+export function formatEventDate(date: string): string {
+    const eventDate = new Date(date);
+    const day = eventDate.getDate();
+    const month = eventDate.toLocaleString("default", { month: "long" });
+    const time = eventDate.toLocaleString("default", {
         hour: "2-digit",
         minute: "2-digit",
     });
-
     const suffix = getDaySuffix(day);
-
     return `${day}${suffix} of ${month}, ${time}`;
 }
 

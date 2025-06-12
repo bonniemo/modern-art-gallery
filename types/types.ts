@@ -1,6 +1,6 @@
 export interface EventInterface {
     id: string;
-    date: { seconds: number };
+    date: string;
     title: string;
     description: string;
     heading: string;
@@ -15,4 +15,9 @@ export interface FormattedEvent extends EventInterface {
 export interface MonthGroup {
     month: string;
     events: FormattedEvent[];
+}
+
+export interface FirestoreTimestamp {
+    _seconds: number;
+    _nanoseconds: number;
 }
